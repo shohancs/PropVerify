@@ -1,0 +1,807 @@
+/* Start: All Application default Css */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Kanit", sans-serif;
+    color: #545454;
+}
+
+main {
+    /* background-image: url(../assets/images/body.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+}
+
+a {
+    text-decoration: none;
+}
+
+/* End: All Application default Css */
+
+/* Start: Top Header Button Css */
+.btn-1 {
+    color: #023021;
+    border: 1px solid #ccc;
+}
+
+.btn-1:hover {
+    background-color: #023021;
+    border: 1px solid #023021;
+    color: #ffc107;
+    transition: 0.2s ease-in-out;
+    box-shadow: 1px 1px 10px #023021;
+}
+
+.btn-2 {
+    color: #ffc107;
+    background-color: #023021;
+    font-size: 20px;
+    border: 1px solid #023021;
+    filter: drop-shadow(0px 0px 12px #023021);
+}
+
+.navigation-header .navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    color: #023021;
+    transition: 0.1s ease-in-out;
+    font-size: 19px;
+}
+
+.navigation-header .nav-link {
+    color: #023021;
+    font-size: 19px;
+}
+
+.navigation-header .nav-link:hover {
+    color: #023021;
+    transition: 0.1s ease-in-out;
+    filter: drop-shadow(0px 0px 12px #023021);
+}
+
+.showlog h5{
+    color: #023021;
+    transition: 0.1s ease-in-out;
+    font-size: 19px;
+
+}
+
+.showlog:hover {
+    color: #023021;
+    transition: 0.1s ease-in-out;
+    filter: drop-shadow(0px 0px 12px #ffc107);
+    cursor: pointer;
+}
+
+/* End: Top Header Button Css */
+
+/* Start: Navigation Header Button Css */
+
+/* Initial styling for container */
+.search-container {
+    position: relative;
+    width: 40px;
+    /* Start small */
+    transition: width 0.5s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid #023021; */
+    border-radius: 5px;
+    /* background-color: white; */
+}
+
+#search-input {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    outline: none;
+    opacity: 0;
+    /* Start hidden */
+    transition: opacity 0.3s ease 0.2s;
+}
+
+#search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.search-container.active {
+    width: 200px;
+}
+
+.search-container.active #search-input {
+    opacity: 1;
+}
+
+
+
+/* End: Navigation Header Button Css */
+
+/* START: BANNER PART CSS */
+
+
+/* END: BANNER PART CSS */
+
+
+/* .top-btn:hover {
+    background-color: #ffc107;
+    border: 1px solid #ffc107;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-2 {
+    color: #023021;
+    box-shadow: 1px 1px 10px #ffc107;
+}
+
+.btn-2:hover {
+    background-color: #023021;
+    border: 1px solid #023021;
+    color: #ffc107;
+    transition: 0.2s ease-in-out;
+    box-shadow: 1px 1px 10px #023021;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    color: #023021;
+    transition: 0.1s ease-in-out;
+}
+
+.nav-link {
+    color: #023021;
+}
+
+.cart {
+    color: #023021;
+    font-size: 20px;
+    filter: drop-shadow(0px 0px 12px #023021);
+}
+
+.nav-link:hover {
+    color: #023021;
+    transition: 0.1s ease-in-out;
+    filter: drop-shadow(0px 0px 12px #023021);
+    border-bottom: 1px solid #023021;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+} */
+
+/* End: Top Header Button Css */
+
+/* Start: Bannner Carousel Slider */
+.banner-slider swiper-container {
+    width: 100%;
+    height: 100%;
+
+}
+
+.banner-slider swiper-slide {
+    font-size: 18px;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 15%;
+}
+
+.banner-slider .parallax-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 130%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-slider swiper-slide .title {
+    font-size: 41px;
+    font-weight: 300;
+}
+
+.banner-slider swiper-slide .subtitle {
+    font-size: 21px;
+}
+
+.banner-slider swiper-slide .text {
+    font-size: 14px;
+    max-width: 400px;
+    line-height: 1.3;
+}
+
+
+/* End: Bannner Carousel Slider */
+
+/* START: Our Services */
+.service-card {
+
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+}
+
+.service-card:hover {
+    box-shadow: 0px 0px 14px 0px #ccc;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.1);
+}
+
+
+/* END: Our Services */
+
+/* START: Explore Part */
+.explore-card:hover {
+    transition: 0.3s ease-in;
+    box-shadow: 0px 0px 14px 0px #ccc;
+}
+
+.btn-3 {
+    color: #023021;
+    box-shadow: 1px 1px 10px #ffc107;
+}
+
+.btn-3:hover {
+    background-color: #023021;
+    border: 1px solid #023021;
+    color: #ffc107;
+    transition: 0.2s ease-in-out;
+    box-shadow: 1px 1px 10px #023021;
+}
+
+.explore-card {
+    position: relative;
+}
+
+
+
+/* END: Explore Part */
+
+
+/* Start: Question Part */
+.question_part {
+    background-image: linear-gradient(to bottom, #053029c7, #05362e), url(../assets/images/quBg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.review-part {
+    background-image: linear-gradient(to top, #e2ba07, #ca9e0fe1), url(../assets/images/quBgL.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+/* End: Question Part */
+
+/* START: Question Part */
+.quBtn {
+    background-color: #05362e;
+    color: #fff;
+    padding: 10px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.quBtn:hover {
+    background: #1a7e00;
+    color: #fff;
+}
+
+.quPartBtn {
+    background-color: #fff;
+    color: #05362e;
+    padding: 15px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.quPartBtn:hover {
+    background: #1a7e00;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.cost {
+    color: #fff;
+    font-size: 4em;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+.cost:hover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+/* END: Question Part */
+
+/* START: Blog part */
+.blog-left {
+    background-image: linear-gradient(to left, rgba(129, 118, 118, 0.486), rgba(99, 93, 93, 0.247)), url(../assets/images/blog.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding: 27% 0;
+}
+
+.card {
+    background-color: #fff;
+    padding: 7%;
+    width: 80%;
+    margin: 0px auto;
+    top: 10%;
+    position: relative;
+}
+
+.category_blog {
+    position: absolute;
+    background-color: #e2ba07;
+    color: #fff;
+    padding: 3px 18px;
+    top: -23px;
+}
+
+.b_title {
+    color: #023021;
+    text-align: left;
+}
+
+.b_title:hover {
+    color: #1a7e00;
+}
+
+.blog-right {
+    position: relative;
+}
+
+.blog-right::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    border: 1px solid #ccc;
+
+}
+
+/* END: Blog part */
+
+/* START: Footer Part */
+/* footer {
+    background-image: linear-gradient(to right, #01221780, #0122177c), url(../assets/images/footer-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+} */
+
+footer .navbar-nav .nav-link.active,
+footer .navbar-nav .nav-link.show {
+    color: #545454;
+    font-size: 17px;
+    line-height: 28px;
+}
+
+footer .nav-link {
+    color: #545454;
+}
+
+footer .nav-link:hover {
+    color: #545454;
+}
+
+/* End: Footer Part */
+
+
+.service-part swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.service-part swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #F8F9FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-part swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.verifiction-owner {
+    position: relative;
+}
+
+.verifiction-owner .ow_img {
+    width: 110%;
+    border-radius: 50%;
+}
+
+.verifiction-owner .verify {
+    position: absolute;
+    bottom: -8px;
+    width: 24px;
+    height: 23px;
+}
+
+
+.top-text span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 13px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.show-img {
+    position: relative;
+}
+
+.items {
+    position: absolute;
+    top: 8px;
+    padding: 2% 5%;
+}
+
+.items-icon {
+    position: absolute;
+    top: 8px;
+    padding: 2% 5%;
+    right: 0px;
+}
+
+.district {
+    color: #023021;
+    font-size: 19px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.district:hover {
+    color: #023021;
+    transition: 0.1s ease-in-out;
+    /* filter: drop-shadow(0px 0px 12px #023021); */
+}
+
+.image_show {
+    position: relative;
+}
+
+.category {
+    position: absolute;
+    top: 8px;
+    padding: 2% 5%;
+}
+
+.category-icon {
+    position: absolute;
+    top: 8px;
+    padding: 2% 5%;
+    right: 0px;
+}
+
+.category_name:hover {
+    box-shadow: 1px 2px 16px #ccc;
+    transition: 0.2s ease-in-out;
+}
+
+
+/* Details page products image part */
+/* Position the image container (needed to position the left and right arrows) */
+.product-image .container {
+    position: relative;
+}
+
+/* Hide the images by default */
+.product-image .mySlides {
+    display: none;
+    background: #eee;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.product-image .cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.product-image .prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: #023021;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.product-image .next {
+    right: 12px;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.product-image .prev:hover,
+.next:hover {
+    background-color: #ccc;
+}
+
+/* Number text (1/3 etc) */
+.product-image .numbertext {
+    color: #023021;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+.product-image .product-image .row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.product-image .column {
+    float: left;
+    width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.product-image .demo {
+    opacity: 0.6;
+}
+
+.product-image .active,
+.demo:hover {
+    opacity: 1;
+}
+
+
+/* Details css */
+
+
+.cntct-btn:hover {
+    background-color: #023021;
+    border: 1px solid #023021;
+    color: #ffc107;
+    transition: 0.2s ease-in-out;
+    box-shadow: 1px 1px 10px #023021;
+}
+
+.amenities i {
+    font-size: 20px;
+}
+
+.amenities p {
+    color: #023021;
+
+}
+
+.map iframe{
+    width: 100% !important;
+    height: 350px;
+}
+
+.cards{
+    position: relative;
+}
+.text-cards {
+    position: absolute;
+    background-color: #023021;
+    color: #fff;
+    top: 0;
+    right: 0;
+    padding: 2px 14px;
+    width: 30%;
+    clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0 100%, 21% 0);
+}
+
+.offer{
+    color: #023021;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+
+.cart {
+    color: #023021;
+    font-size: 20px;
+    filter: drop-shadow(0px 0px 12px #023021);
+    cursor: ;
+}
+
+
+
+/**/
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.add-property,
+.login,
+.signup {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.signup {
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Wishlist Icon */
+.wishlist-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.wishlist-icon .heart-icon {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.wishlist-icon .wishlist-count {
+  font-size: 14px;
+  color: green;
+}
+
+/* Wishlist Panel */
+.wishlist-panel {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Initially hidden on the right */
+  width: 300px;
+  height: 100vh; /* Full viewport height */
+  background-color: white;
+  border-left: 1px solid #ddd;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease-in-out;
+}
+
+/* Show panel when active */
+.wishlist-panel.active {
+  right: 0; /* Fully visible */
+}
+
+/* Wishlist Header */
+.wishlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.wishlist-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.close-panel {
+  font-size: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Scrollable Wishlist Content */
+.wishlist-content {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #555;
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: calc(100vh - 60px); /* Adjust height based on header height */
+}
+
+/* Scrollbar styling (optional) */
+.wishlist-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.wishlist-content::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.wishlist-content::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+.action-btn,
+.modal-footer {
+    text-align: center;
+    
+}
+
+.action-btn ul,
+.modal-footer ul {
+    padding: 0;
+    margin: 0;
+
+}
+
+.action-btn ul li,
+.modal-footer ul li {
+    list-style: none;
+    display: inline-block;
+
+} 
+
+.action-btn ul li a i {
+    font-size: 13px;
+
+}
