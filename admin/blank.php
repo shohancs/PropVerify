@@ -18,7 +18,7 @@
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="dashboard.php"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">All Category list</li>
+								<li class="breadcrumb-item active" aria-current="page">All Category dummt list</li>
 							</ol>
 						</nav>
 					</div>
