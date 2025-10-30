@@ -20,9 +20,9 @@
 								</li>
 								<li class="breadcrumb-item active" aria-current="page">All Category dummt list</li>
 							</ol>
-						</nav>
+						</nav> 
 					</div>
-					<!-- START: For Right Part -->
+					<!-- START: For Right Part -->   
 					<div class="ms-auto">
 						<div class="btn-group">
 							<div class="row row-cols-auto g-3">
