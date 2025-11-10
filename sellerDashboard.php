@@ -387,383 +387,385 @@
                     }
 
                   // =============================================
-// do=Add : ফর্ম + লিমিট চেক + ক্যাটাগরি হাইড
-// =============================================
-else if ($do == 'Add') { ?>
-    <div class="row pt-3 pb-2">
-        <div class="col-lg-6">
-            <h4 style="margin: 0px auto; color:#023021;">Add New Rent Products</h4>
-        </div>
-        <div class="col-lg-6 text-end">
-            <a href="sellerDashboard.php?do=allRentProducts" class="btn btn-dark">My All Products</a>
-        </div>
-    </div>
-    <hr>
-    <div class="p-5 bg-light">
-        <?php
-        $activeEmail = $_SESSION['email'];
-
-        // 1. টোটাল লিমিট (সব প্যাকেজ যোগ করে)
-        $total_flat = $total_store = $total_hotel = 0;
-        $trans_q = mysqli_query($db, "SELECT package_name FROM transactions WHERE user_email='$activeEmail' AND status=1");
-        while ($t = mysqli_fetch_assoc($trans_q)) {
-            $p = mysqli_fetch_assoc(mysqli_query($db, "SELECT rent_flat, rent_store, rent_hotel FROM package WHERE name='{$t['package_name']}'"));
-            $total_flat   += (int)$p['rent_flat'];
-            $total_store  += (int)$p['rent_store'];
-            $total_hotel  += (int)$p['rent_hotel'];
-        }
-
-        // 2. পোস্ট কাউন্ট
-        $posted_flat = $posted_store = $posted_hotel = 0;
-        $count_q = mysqli_query($db, "SELECT is_parent, COUNT(*) as cnt FROM rent_subcategory WHERE ow_email='$activeEmail' GROUP BY is_parent");
-        while ($c = mysqli_fetch_assoc($count_q)) {
-            if ($c['is_parent'] == 1) $posted_flat   = $c['cnt'];
-            if ($c['is_parent'] == 2) $posted_hotel  = $c['cnt'];
-            if ($c['is_parent'] == 3) $posted_store  = $c['cnt'];
-        }
-
-        // 3. অ্যাভেলেবল ক্যাটাগরি + মেসেজ
-        $available_cats = [];
-        $limit_messages = [];
-
-        if ($posted_flat >= $total_flat)   $limit_messages[] = "Apartment limit sesh";
-        else                              $available_cats[] = 1;
-
-        if ($posted_store >= $total_store) $limit_messages[] = "Store limit sesh";
-        else                              $available_cats[] = 3;
-
-        if ($posted_hotel >= $total_hotel) $limit_messages[] = "Hotel limit sesh";
-        else                              $available_cats[] = 2;
-
-        if (empty($available_cats)) {
-            echo '<h1 class="text-danger text-center">All category limits sesh! Please purchase a new package.</h1>';
-        } else {
-            if (!empty($limit_messages)) {
-                echo '<h1 class="text-warning text-center">' . implode(' | ', $limit_messages) . '</h1>';
-            }
-            ?>
-
-            <!-- তোমার অরিজিনাল ফর্ম -->
-            <form action="sellerDashboard.php?do=Store" method="POST" enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="mb-3">
-                            <label>Sub Category Name</label>
-                            <input type="text" name="subname" class="form-control" required autocomplete="off" placeholder="enter sub category name..">
+                // do=Add : ফর্ম + লিমিট চেক + ক্যাটাগরি হাইড
+                // =============================================
+                else if ($do == 'Add') { ?>
+                    <div class="row pt-3 pb-2">
+                        <div class="col-lg-6">
+                            <h4 style="margin: 0px auto; color:#023021;">Add New Rent Products</h4>
                         </div>
-                        <div class="mb-3">
-                            <input type="hidden" name="ow_name" value="<?php echo $_SESSION['name']; ?>">
-                            <input type="hidden" name="ow_email" value="<?php echo $_SESSION['email']; ?>">
-                            <?php
-                            $sesEmail = $_SESSION['email'];
-                            $sql = "SELECT phone FROM role WHERE email='$sesEmail'";
-                            $query = mysqli_query($db, $sql);
-                            while ($row = mysqli_fetch_assoc($query)) {
-                                echo '<input type="hidden" name="ow_phone" value="'.$row['phone'].'">';
+                        <div class="col-lg-6 text-end">
+                            <a href="sellerDashboard.php?do=allRentProducts" class="btn btn-dark">My All Products</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="p-5 bg-light">
+                        <?php
+                        $activeEmail = $_SESSION['email'];
+
+                        // 1. টোটাল লিমিট (সব প্যাকেজ যোগ করে)
+                        $total_flat = $total_store = $total_hotel = 0;
+                        $trans_q = mysqli_query($db, "SELECT package_name FROM transactions WHERE user_email='$activeEmail' AND status=1");
+                        while ($t = mysqli_fetch_assoc($trans_q)) {
+                            $p = mysqli_fetch_assoc(mysqli_query($db, "SELECT rent_flat, rent_store, rent_hotel FROM package WHERE name='{$t['package_name']}'"));
+                            $total_flat   += (int)$p['rent_flat'];
+                            $total_store  += (int)$p['rent_store'];
+                            $total_hotel  += (int)$p['rent_hotel'];
+                        }
+
+                        // 2. পোস্ট কাউন্ট
+                        $posted_flat = $posted_store = $posted_hotel = 0;
+                        $count_q = mysqli_query($db, "SELECT is_parent, COUNT(*) as cnt FROM rent_subcategory WHERE ow_email='$activeEmail' GROUP BY is_parent");
+                        while ($c = mysqli_fetch_assoc($count_q)) {
+                            if ($c['is_parent'] == 1) $posted_flat   = $c['cnt'];
+                            if ($c['is_parent'] == 2) $posted_hotel  = $c['cnt'];
+                            if ($c['is_parent'] == 3) $posted_store  = $c['cnt'];
+                        }
+
+                        // 3. অ্যাভেলেবল ক্যাটাগরি + মেসেজ
+                        $available_cats = [];
+                        $limit_messages = [];
+
+                        if ($posted_flat >= $total_flat)   $limit_messages[] = "Apartment limit sesh";
+                        else                              $available_cats[] = 1;
+
+                        if ($posted_store >= $total_store) $limit_messages[] = "Store Category limit is Over";
+                        else                              $available_cats[] = 3;
+
+                        if ($posted_hotel >= $total_hotel) $limit_messages[] = "Hotel Category limit is Over";
+                        else                              $available_cats[] = 2;
+
+                        if (empty($available_cats)) {
+                            echo '<h1 class="text-danger text-center">Package Limit is Over! Upgrade you package.</h1>';
+                        } else {
+                            if (!empty($limit_messages)) {
+                                echo '<h1 class="text-warning text-center">' . implode(' | ', $limit_messages) . '</h1>';
                             }
                             ?>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label>Division</label>
-                                    <select class="form-select" name="division">
-                                        <option>Select the Division</option>
+                            <!-- তোমার অরিজিনাল ফর্ম -->
+                            <form action="sellerDashboard.php?do=Store" method="POST" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label>Sub Category Name</label>
+                                            <input type="text" name="subname" class="form-control" required autocomplete="off" placeholder="enter sub category name..">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="hidden" name="ow_name" value="<?php echo $_SESSION['name']; ?>">
+                                            <input type="hidden" name="ow_email" value="<?php echo $_SESSION['email']; ?>">
+                                            <?php
+                                            $sesEmail = $_SESSION['email'];
+                                            $sql = "SELECT phone FROM role WHERE email='$sesEmail'";
+                                            $query = mysqli_query($db, $sql);
+                                            while ($row = mysqli_fetch_assoc($query)) {
+                                                echo '<input type="hidden" name="ow_phone" value="'.$row['phone'].'">';
+                                            }
+                                            ?>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label>Division</label>
+                                                    <select class="form-select" name="division">
+                                                        <option>Select the Division</option>
+                                                        <?php
+                                                        $sql = "SELECT * FROM rent_division WHERE status=1 ORDER BY priority ASC";
+                                                        $query = mysqli_query($db, $sql);
+                                                        while ($row = mysqli_fetch_assoc($query)) {
+                                                            echo '<option value="'.$row['id'].'">'.$row['name'].'</option>';
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label>District</label>
+                                                    <input type="text" name="district" class="form-control" autocomplete="off" placeholder="enter district..">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label>House Number & Location</label>
+                                            <input type="text" name="location" class="form-control" autocomplete="off" placeholder="enter area location..">
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label>Category Name</label>
+                                                    <select class="form-select" name="is_parent" required>
+                                                        <option>Please Select the Category</option>
+                                                        <?php
+                                                        $catSql = "SELECT cat_id, name FROM rent_category WHERE status=1 AND cat_id IN (".implode(',', $available_cats).")";
+                                                        $catQuery = mysqli_query($db, $catSql);
+                                                        while ($row = mysqli_fetch_assoc($catQuery)) {
+                                                            echo '<option value="'.$row['cat_id'].'"> - '.$row['name'].'</option>';
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label>Price <sup>(Taka)</sup></label>
+                                                    <input type="number" name="price" class="form-control" autocomplete="off" placeholder="enter price..">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-2"><div class="mb-3"><label>Bed</label><input type="number" name="bed" class="form-control" placeholder="enter number of bed.."></div></div>
+                                            <div class="col-lg-2"><div class="mb-3"><label>Kitchen</label><input type="number" name="kitchen" class="form-control" placeholder="enter number of kitchen.."></div></div>
+                                            <div class="col-lg-2"><div class="mb-3"><label>Drawing</label><input type="number" name="drawing" class="form-control" placeholder="drawing.."></div></div>
+                                            <div class="col-lg-2"><div class="mb-3"><label>Dinning</label><input type="number" name="dinning" class="form-control" placeholder="enter number of dinning.."></div></div>
+                                            <div class="col-lg-2"><div class="mb-3"><label>Balcony</label><input type="number" name="balcony" class="form-control" placeholder="enter number of balcony.."></div></div>
+                                            <div class="col-lg-2"><div class="mb-3"><label>Garage</label><input type="number" name="garage" class="form-control" placeholder="enter number of garage.."></div></div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-3"><div class="mb-3"><label>Bathroom</label><input type="number" name="washroom" class="form-control" placeholder="enter number of washroom.."></div></div>
+                                            <div class="col-lg-3"><div class="mb-3"><label>Total Room</label><input type="number" name="totalRoom" class="form-control" placeholder="enter number of total room.."></div></div>
+                                            <div class="col-lg-3"><div class="mb-3"><label>Area Size <sup>(Sq Ft)</sup></label><input type="number" name="areaSize" class="form-control" placeholder="enter size of area.."></div></div>
+                                            <div class="col-lg-3"><div class="mb-3"><label>Floor Number</label><input type="number" name="floor" class="form-control" placeholder="enter floor.."></div></div>
+                                        </div>
+
+                                        <label>For Hotel And Other Category</label>
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="mb-3">
+                                                    <label>Ranking For Hotel</label>
+                                                    <select name="rank" class="form-select">
+                                                        <option>select Here</option>
+                                                        <option value="1">5 Star</option>
+                                                        <option value="2">4 Star</option>
+                                                        <option value="3">3 Star</option>
+                                                        <option value="4">2 Star</option>
+                                                        <option value="5">1 Star</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class=" randon mb-3">
+                                                    <label>Decoration</label>
+                                                    <select name="decoration" class="form-select">
+                                                        <option>select Here</option>
+                                                        <option value="1">Furnished</option>
+                                                        <option value="2">Semi-Furnished</option>
+                                                        <option value="3">Non-Furnished</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3">
+                                                <div class="form-check"><input name="desk" class="form-check-input" type="checkbox" value="1"><label>Front desk [24-hour]</label></div>
+                                                <div class="form-check"><input name="wifi" class="form-check-input" type="checkbox" value="1"><label>Free Wi-Fi in all rooms!</label></div>
+                                                <div class="form-check"><input name="hottub" class="form-check-input" type="checkbox" value="1"><label>Hot tub</label></div>
+                                                <div class="form-check"><input name="currency" class="form-check-input" type="checkbox" value="1"><label>Currency exchange</label></div>
+                                                <div class="form-check"><input name="breakfast" class="form-check-input" type="checkbox" value="1"><label>Breakfast</label></div>
+                                                <div class="form-check"><input name="restourant" class="form-check-input" type="checkbox" value="1"><label>Restourant</label></div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="form-check"><input name="ac" class="form-check-input" type="checkbox" value="1"><label>Air conditioning</label></div>
+                                                <div class="form-check"><input name="pool" class="form-check-input" type="checkbox" value="1"><label>Swimming pool(indoor)</label></div>
+                                                <div class="form-check"><input name="park" class="form-check-input" type="checkbox" value="1"><label>Car park</label></div>
+                                                <div class="form-check"><input name="gym" class="form-check-input" type="checkbox" value="1"><label>Fitness center</label></div>
+                                                <div class="form-check"><input name="luggage" class="form-check-input" type="checkbox" value="1"><label>Luggage storage</label></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label>Short Description</label>
+                                            <textarea name="sdesc" class="form-control" cols="30" rows="3" id="editor" placeholder="write short description..."></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Long Description</label>
+                                            <textarea name="ldesc" class="form-control" cols="30" rows="4" id="editor1" placeholder="write long description..."></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Google Embed Map URL <sup>(iframe)</sup></label>
+                                            <textarea name="map" rows="2" class="form-control" placeholder="iframe url code"></textarea>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label>Available on</label>
+                                                    <input type="date" name="availabe" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <input type="hidden" name="status" value="2">
+                                            </div>
+                                        </div>
+
                                         <?php
-                                        $sql = "SELECT * FROM rent_division WHERE status=1 ORDER BY priority ASC";
+                                        $sql = "SELECT image FROM role WHERE email='$sesEmail'";
                                         $query = mysqli_query($db, $sql);
                                         while ($row = mysqli_fetch_assoc($query)) {
-                                            echo '<option value="'.$row['id'].'">'.$row['name'].'</option>';
+                                            echo '<input type="hidden" name="ow_image" value="'.$row['image'].'">';
                                         }
                                         ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label>District</label>
-                                    <input type="text" name="district" class="form-control" autocomplete="off" placeholder="enter district..">
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="mb-3">
-                            <label>House Number & Location</label>
-                            <input type="text" name="location" class="form-control" autocomplete="off" placeholder="enter area location..">
-                        </div>
+                                        <div class="row">
+                                            <label>Products Images</label>
+                                            <div class="col-lg-6"><div class="mb-3"><label>Image One</label><input type="file" name="img_one" class="form-control"></div></div>
+                                            <div class="col-lg-6"><div class="mb-3"><label>Image Two</label><input type="file" name="img_two" class="form-control"></div></div>
+                                            <div class="col-lg-6"><div class="mb-3"><label>Image Three</label><input type="file" name="img_three" class="form-control"></div></div>
+                                            <div class="col-lg-6"><div class="mb-3"><label>Image Four</label><input type="file" name="img_four" class="form-control"></div></div>
+                                            <div class="col-lg-6"><div class="mb-3"><label>Image Five</label><input type="file" name="img_five" class="form-control"></div></div>
+                                            <div class="col-lg-6"><div class="mb-3"><label>Image Six</label><input type="file" name="img_six" class="form-control"></div></div>
+                                        </div>
 
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label>Category Name</label>
-                                    <select class="form-select" name="is_parent" required>
-                                        <option>Please Select the Category</option>
-                                        <?php
-                                        $catSql = "SELECT cat_id, name FROM rent_category WHERE status=1 AND cat_id IN (".implode(',', $available_cats).")";
-                                        $catQuery = mysqli_query($db, $catSql);
-                                        while ($row = mysqli_fetch_assoc($catQuery)) {
-                                            echo '<option value="'.$row['cat_id'].'"> - '.$row['name'].'</option>';
-                                        }
-                                        ?>
-                                    </select>
+                                        <div class="mb-3">
+                                            <div class="d-grid gap-2">
+                                                <input type="submit" name="addSubCat" class="btn btn-dark px-5" value="Add New Product">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label>Price <sup>(Taka)</sup></label>
-                                    <input type="number" name="price" class="form-control" autocomplete="off" placeholder="enter price..">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-2"><div class="mb-3"><label>Bed</label><input type="number" name="bed" class="form-control" placeholder="enter number of bed.."></div></div>
-                            <div class="col-lg-2"><div class="mb-3"><label>Kitchen</label><input type="number" name="kitchen" class="form-control" placeholder="enter number of kitchen.."></div></div>
-                            <div class="col-lg-2"><div class="mb-3"><label>Drawing</label><input type="number" name="drawing" class="form-control" placeholder="drawing.."></div></div>
-                            <div class="col-lg-2"><div class="mb-3"><label>Dinning</label><input type="number" name="dinning" class="form-control" placeholder="enter number of dinning.."></div></div>
-                            <div class="col-lg-2"><div class="mb-3"><label>Balcony</label><input type="number" name="balcony" class="form-control" placeholder="enter number of balcony.."></div></div>
-                            <div class="col-lg-2"><div class="mb-3"><label>Garage</label><input type="number" name="garage" class="form-control" placeholder="enter number of garage.."></div></div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-3"><div class="mb-3"><label>Bathroom</label><input type="number" name="washroom" class="form-control" placeholder="enter number of washroom.."></div></div>
-                            <div class="col-lg-3"><div class="mb-3"><label>Total Room</label><input type="number" name="totalRoom" class="form-control" placeholder="enter number of total room.."></div></div>
-                            <div class="col-lg-3"><div class="mb-3"><label>Area Size <sup>(Sq Ft)</sup></label><input type="number" name="areaSize" class="form-control" placeholder="enter size of area.."></div></div>
-                            <div class="col-lg-3"><div class="mb-3"><label>Floor Number</label><input type="number" name="floor" class="form-control" placeholder="enter floor.."></div></div>
-                        </div>
-
-                        <label>For Hotel And Other Category</label>
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="mb-3">
-                                    <label>Ranking For Hotel</label>
-                                    <select name="rank" class="form-select">
-                                        <option>select Here</option>
-                                        <option value="1">5 Star</option>
-                                        <option value="2">4 Star</option>
-                                        <option value="3">3 Star</option>
-                                        <option value="4">2 Star</option>
-                                        <option value="5">1 Star</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class=" randon mb-3">
-                                    <label>Decoration</label>
-                                    <select name="decoration" class="form-select">
-                                        <option>select Here</option>
-                                        <option value="1">Furnished</option>
-                                        <option value="2">Semi-Furnished</option>
-                                        <option value="3">Non-Furnished</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="form-check"><input name="desk" class="form-check-input" type="checkbox" value="1"><label>Front desk [24-hour]</label></div>
-                                <div class="form-check"><input name="wifi" class="form-check-input" type="checkbox" value="1"><label>Free Wi-Fi in all rooms!</label></div>
-                                <div class="form-check"><input name="hottub" class="form-check-input" type="checkbox" value="1"><label>Hot tub</label></div>
-                                <div class="form-check"><input name="currency" class="form-check-input" type="checkbox" value="1"><label>Currency exchange</label></div>
-                                <div class="form-check"><input name="breakfast" class="form-check-input" type="checkbox" value="1"><label>Breakfast</label></div>
-                                <div class="form-check"><input name="restourant" class="form-check-input" type="checkbox" value="1"><label>Restourant</label></div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-check"><input name="ac" class="form-check-input" type="checkbox" value="1"><label>Air conditioning</label></div>
-                                <div class="form-check"><input name="pool" class="form-check-input" type="checkbox" value="1"><label>Swimming pool(indoor)</label></div>
-                                <div class="form-check"><input name="park" class="form-check-input" type="checkbox" value="1"><label>Car park</label></div>
-                                <div class="form-check"><input name="gym" class="form-check-input" type="checkbox" value="1"><label>Fitness center</label></div>
-                                <div class="form-check"><input name="luggage" class="form-check-input" type="checkbox" value="1"><label>Luggage storage</label></div>
-                            </div>
-                        </div>
+                            </form>
+                        <?php } ?>
                     </div>
+                <?php }
 
-                    <div class="col-lg-6">
-                        <div class="mb-3">
-                            <label>Short Description</label>
-                            <textarea name="sdesc" class="form-control" cols="30" rows="3" id="editor" placeholder="write short description..."></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label>Long Description</label>
-                            <textarea name="ldesc" class="form-control" cols="30" rows="4" id="editor1" placeholder="write long description..."></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label>Google Embed Map URL <sup>(iframe)</sup></label>
-                            <textarea name="map" rows="2" class="form-control" placeholder="iframe url code"></textarea>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label>Available on</label>
-                                    <input type="date" name="availabe" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="hidden" name="status" value="2">
-                            </div>
-                        </div>
+                // =============================================
+                // do=Store : তোমার কোড + লিমিট চেক + সিকিউর আপলোড
+                // =============================================
+                else if ($do == "Store") {
+                    if (isset($_POST['addSubCat'])) {
+                        $activeEmail = $_SESSION['email'];
 
-                        <?php
-                        $sql = "SELECT image FROM role WHERE email='$sesEmail'";
-                        $query = mysqli_query($db, $sql);
-                        while ($row = mysqli_fetch_assoc($query)) {
-                            echo '<input type="hidden" name="ow_image" value="'.$row['image'].'">';
+                        // লিমিট চেক (আবার)
+                        $total_flat = $total_store = $total_hotel = 0;
+                        $trans_q = mysqli_query($db, "SELECT package_name FROM transactions WHERE user_email='$activeEmail' AND status=1");
+                        while ($t = mysqli_fetch_assoc($trans_q)) {
+                            $p = mysqli_fetch_assoc(mysqli_query($db, "SELECT rent_flat, rent_store, rent_hotel FROM package WHERE name='{$t['package_name']}'"));
+                            $total_flat   += (int)$p['rent_flat'];
+                            $total_store  += (int)$p['rent_store'];
+                            $total_hotel  += (int)$p['rent_hotel'];
                         }
-                        ?>
 
-                        <div class="row">
-                            <label>Products Images</label>
-                            <div class="col-lg-6"><div class="mb-3"><label>Image One</label><input type="file" name="img_one" class="form-control"></div></div>
-                            <div class="col-lg-6"><div class="mb-3"><label>Image Two</label><input type="file" name="img_two" class="form-control"></div></div>
-                            <div class="col-lg-6"><div class="mb-3"><label>Image Three</label><input type="file" name="img_three" class="form-control"></div></div>
-                            <div class="col-lg-6"><div class="mb-3"><label>Image Four</label><input type="file" name="img_four" class="form-control"></div></div>
-                            <div class="col-lg-6"><div class="mb-3"><label>Image Five</label><input type="file" name="img_five" class="form-control"></div></div>
-                            <div class="col-lg-6"><div class="mb-3"><label>Image Six</label><input type="file" name="img_six" class="form-control"></div></div>
-                        </div>
+                        $posted_q = mysqli_query($db, "SELECT is_parent, COUNT(*) as cnt FROM rent_subcategory WHERE ow_email='$activeEmail' GROUP BY is_parent");
+                        $posted_flat = $posted_store = $posted_hotel = 0;
+                        while ($c = mysqli_fetch_assoc($posted_q)) {
+                            if ($c['is_parent'] == 1) $posted_flat   = $c['cnt'];
+                            if ($c['is_parent'] == 2) $posted_hotel  = $c['cnt'];
+                            if ($c['is_parent'] == 3) $posted_store  = $c['cnt'];
+                        }
 
-                        <div class="mb-3">
-                            <div class="d-grid gap-2">
-                                <input type="submit" name="addSubCat" class="btn btn-dark px-5" value="Add New Product">
+                        $is_parent = (int)$_POST['is_parent'];
+                        $can_post = false;
+                        if ($is_parent == 1 && $posted_flat < $total_flat)   $can_post = true;
+                        if ($is_parent == 2 && $posted_hotel < $total_hotel) $can_post = true;
+                        if ($is_parent == 3 && $posted_store < $total_store) $can_post = true;
+
+                        if (!$can_post) {
+                            echo ' 
+                            <div class="alert alert-danger" role="alert">
+                              Package Limit is Over! Upgrade you package.
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        <?php } ?>
-    </div>
-<?php }
+                            ';
+                            exit;
+                        }
 
+                        // ডাটা সংগ্রহ
+                        $subname     = mysqli_real_escape_string($db, $_POST['subname']);
+                        $ow_name     = mysqli_real_escape_string($db, $_POST['ow_name']);
+                        $ow_email    = mysqli_real_escape_string($db, $_POST['ow_email']);
+                        $ow_phone    = mysqli_real_escape_string($db, $_POST['ow_phone']);
+                        $division    = (int)$_POST['division'];
+                        $district    = mysqli_real_escape_string($db, $_POST['district']);
+                        $location    = mysqli_real_escape_string($db, $_POST['location']);
+                        $price       = (int)$_POST['price'];
+                        $bed         = (int)$_POST['bed'];
+                        $kitchen     = (int)$_POST['kitchen'];
+                        $drawing     = (int)$_POST['drawing'];
+                        $dinning     = (int)$_POST['dinning'];
+                        $balcony     = (int)$_POST['balcony'];
+                        $garage      = (int)$_POST['garage'];
+                        $washroom    = (int)$_POST['washroom'];
+                        $totalRoom   = (int)$_POST['totalRoom'];
+                        $areaSize    = (int)$_POST['areaSize'];
+                        $floor       = (int)$_POST['floor'];
+                        $rank        = (int)$_POST['rank'];
+                        $decoration  = (int)$_POST['decoration'];
+                        $desk        = isset($_POST['desk']) ? 1 : 0;
+                        $wifi        = isset($_POST['wifi']) ? 1 : 0;
+                        $hottub      = isset($_POST['hottub']) ? 1 : 0;
+                        $currency    = isset($_POST['currency']) ? 1 : 0;
+                        $breakfast   = isset($_POST['breakfast']) ? 1 : 0;
+                        $restourant  = isset($_POST['restourant']) ? 1 : 0;
+                        $ac          = isset($_POST['ac']) ? 1 : 0;
+                        $pool        = isset($_POST['pool']) ? 1 : 0;
+                        $park        = isset($_POST['park']) ? 1 : 0;
+                        $gym         = isset($_POST['gym']) ? 1 : 0;
+                        $luggage     = isset($_POST['luggage']) ? 1 : 0;
+                        $sdesc       = mysqli_real_escape_string($db, $_POST['sdesc']);
+                        $ldesc       = mysqli_real_escape_string($db, $_POST['ldesc']);
+                        $map         = mysqli_real_escape_string($db, $_POST['map']);
+                        $availabe    = $_POST['availabe'];
+                        $status      = 2;
+                        $imgOwn      = mysqli_real_escape_string($db, $_POST['ow_image']);
 
-// =============================================
-// do=Store : তোমার কোড + লিমিট চেক + সিকিউর আপলোড
-// =============================================
-else if ($do == "Store") {
-    if (isset($_POST['addSubCat'])) {
-        $activeEmail = $_SESSION['email'];
+                        // স্লাগ
+                        function createSlug($subname) {
+                            $slug = strtolower($subname);
+                            $slug = preg_replace('/[^a-z0-9\s-]/', '', $slug);
+                            $slug = preg_replace('/[\s-]+/', ' ', $slug);
+                            $slug = preg_replace('/\s/', '-', $slug);
+                            return trim($slug, '-');
+                        }
+                        $slug = createSlug($subname);
 
-        // লিমিট চেক (আবার)
-        $total_flat = $total_store = $total_hotel = 0;
-        $trans_q = mysqli_query($db, "SELECT package_name FROM transactions WHERE user_email='$activeEmail' AND status=1");
-        while ($t = mysqli_fetch_assoc($trans_q)) {
-            $p = mysqli_fetch_assoc(mysqli_query($db, "SELECT rent_flat, rent_store, rent_hotel FROM package WHERE name='{$t['package_name']}'"));
-            $total_flat   += (int)$p['rent_flat'];
-            $total_store  += (int)$p['rent_store'];
-            $total_hotel  += (int)$p['rent_hotel'];
-        }
+                        // ইমেজ আপলোড
+                        $upload_dir = 'admin/assets/images/subcategory/';
+                        if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
 
-        $posted_q = mysqli_query($db, "SELECT is_parent, COUNT(*) as cnt FROM rent_subcategory WHERE ow_email='$activeEmail' GROUP BY is_parent");
-        $posted_flat = $posted_store = $posted_hotel = 0;
-        while ($c = mysqli_fetch_assoc($posted_q)) {
-            if ($c['is_parent'] == 1) $posted_flat   = $c['cnt'];
-            if ($c['is_parent'] == 2) $posted_hotel  = $c['cnt'];
-            if ($c['is_parent'] == 3) $posted_store  = $c['cnt'];
-        }
+                        $img1 = $img2 = $img3 = $img4 = $img5 = $img6 = '';
+                        for ($i = 1; $i <= 6; $i++) {
+                            $field = "img_" . ($i == 1 ? 'one' : ($i == 2 ? 'two' : ($i == 3 ? 'three' : ($i == 4 ? 'four' : ($i == 5 ? 'five' : 'six')))));
+                            if (!empty($_FILES[$field]['name'])) {
+                                $ext = strtolower(pathinfo($_FILES[$field]['name'], PATHINFO_EXTENSION));
+                                if (in_array($ext, ['jpg','jpeg','png','gif'])) {
+                                    $name = rand(0, 999999) . "_" . $_FILES[$field]['name'];
+                                    if (move_uploaded_file($_FILES[$field]['tmp_name'], $upload_dir . $name)) {
+                                        ${"img$i"} = $name;
+                                    }
+                                }
+                            }
+                        }
 
-        $is_parent = (int)$_POST['is_parent'];
-        $can_post = false;
-        if ($is_parent == 1 && $posted_flat < $total_flat)   $can_post = true;
-        if ($is_parent == 2 && $posted_hotel < $total_hotel) $can_post = true;
-        if ($is_parent == 3 && $posted_store < $total_store) $can_post = true;
+                        // ইনসার্ট
+                        $addSubCategorySql = "INSERT INTO rent_subcategory (
+                            subcat_name, slug, is_parent, ow_name, ow_email, ow_phone, district, division_id, location,
+                            price, bed, kitchen, washroom, totalroom, area_size, floor, rank, decoration,
+                            desk, wifi, hottub, currency, breakfast, restourant, ac, pool, park, gym, luggage,
+                            drwaing, dinning, balcony, garage, availability, short_desc, long_desc, ow_image,
+                            img_one, img_two, img_three, img_four, img_five, img_six, status, google_map, join_date
+                        ) VALUES (
+                            '$subname', '$slug', '$is_parent', '$ow_name', '$ow_email', '$ow_phone', '$district', '$division', '$location',
+                            '$price', '$bed', '$kitchen', '$washroom', '$totalRoom', '$areaSize', '$floor', '$rank', '$decoration',
+                            '$desk', '$wifi', '$hottub', '$currency', '$breakfast', '$restourant', '$ac', '$pool', '$park', '$gym', '$luggage',
+                            '$drawing', '$dinning', '$balcony', '$garage', '$availabe', '$sdesc', '$ldesc', '$imgOwn',
+                            '$img1', '$img2', '$img3', '$img4', '$img5', '$img6', '$status', '$map', NOW()
+                        )";
 
-        if (!$can_post) {
-            echo '<h1 class="text-danger text-center">Limit sesh for this category!</h1>';
-            exit;
-        }
-
-        // ডাটা সংগ্রহ
-        $subname     = mysqli_real_escape_string($db, $_POST['subname']);
-        $ow_name     = mysqli_real_escape_string($db, $_POST['ow_name']);
-        $ow_email    = mysqli_real_escape_string($db, $_POST['ow_email']);
-        $ow_phone    = mysqli_real_escape_string($db, $_POST['ow_phone']);
-        $division    = (int)$_POST['division'];
-        $district    = mysqli_real_escape_string($db, $_POST['district']);
-        $location    = mysqli_real_escape_string($db, $_POST['location']);
-        $price       = (int)$_POST['price'];
-        $bed         = (int)$_POST['bed'];
-        $kitchen     = (int)$_POST['kitchen'];
-        $drawing     = (int)$_POST['drawing'];
-        $dinning     = (int)$_POST['dinning'];
-        $balcony     = (int)$_POST['balcony'];
-        $garage      = (int)$_POST['garage'];
-        $washroom    = (int)$_POST['washroom'];
-        $totalRoom   = (int)$_POST['totalRoom'];
-        $areaSize    = (int)$_POST['areaSize'];
-        $floor       = (int)$_POST['floor'];
-        $rank        = (int)$_POST['rank'];
-        $decoration  = (int)$_POST['decoration'];
-        $desk        = isset($_POST['desk']) ? 1 : 0;
-        $wifi        = isset($_POST['wifi']) ? 1 : 0;
-        $hottub      = isset($_POST['hottub']) ? 1 : 0;
-        $currency    = isset($_POST['currency']) ? 1 : 0;
-        $breakfast   = isset($_POST['breakfast']) ? 1 : 0;
-        $restourant  = isset($_POST['restourant']) ? 1 : 0;
-        $ac          = isset($_POST['ac']) ? 1 : 0;
-        $pool        = isset($_POST['pool']) ? 1 : 0;
-        $park        = isset($_POST['park']) ? 1 : 0;
-        $gym         = isset($_POST['gym']) ? 1 : 0;
-        $luggage     = isset($_POST['luggage']) ? 1 : 0;
-        $sdesc       = mysqli_real_escape_string($db, $_POST['sdesc']);
-        $ldesc       = mysqli_real_escape_string($db, $_POST['ldesc']);
-        $map         = mysqli_real_escape_string($db, $_POST['map']);
-        $availabe    = $_POST['availabe'];
-        $status      = 2;
-        $imgOwn      = mysqli_real_escape_string($db, $_POST['ow_image']);
-
-        // স্লাগ
-        function createSlug($subname) {
-            $slug = strtolower($subname);
-            $slug = preg_replace('/[^a-z0-9\s-]/', '', $slug);
-            $slug = preg_replace('/[\s-]+/', ' ', $slug);
-            $slug = preg_replace('/\s/', '-', $slug);
-            return trim($slug, '-');
-        }
-        $slug = createSlug($subname);
-
-        // ইমেজ আপলোড
-        $upload_dir = 'admin/assets/images/subcategory/';
-        if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
-
-        $img1 = $img2 = $img3 = $img4 = $img5 = $img6 = '';
-        for ($i = 1; $i <= 6; $i++) {
-            $field = "img_" . ($i == 1 ? 'one' : ($i == 2 ? 'two' : ($i == 3 ? 'three' : ($i == 4 ? 'four' : ($i == 5 ? 'five' : 'six')))));
-            if (!empty($_FILES[$field]['name'])) {
-                $ext = strtolower(pathinfo($_FILES[$field]['name'], PATHINFO_EXTENSION));
-                if (in_array($ext, ['jpg','jpeg','png','gif'])) {
-                    $name = rand(0, 999999) . "_" . $_FILES[$field]['name'];
-                    if (move_uploaded_file($_FILES[$field]['tmp_name'], $upload_dir . $name)) {
-                        ${"img$i"} = $name;
+                        $addQuery = mysqli_query($db, $addSubCategorySql);
+                        if ($addQuery) {
+                            header("Location: sellerDashboard.php?do=allRentProducts");
+                            exit;
+                        } else {
+                            die("Mysql Error: " . mysqli_error($db));
+                        }
                     }
                 }
-            }
-        }
-
-        // ইনসার্ট
-        $addSubCategorySql = "INSERT INTO rent_subcategory (
-            subcat_name, slug, is_parent, ow_name, ow_email, ow_phone, district, division_id, location,
-            price, bed, kitchen, washroom, totalroom, area_size, floor, rank, decoration,
-            desk, wifi, hottub, currency, breakfast, restourant, ac, pool, park, gym, luggage,
-            drwaing, dinning, balcony, garage, availability, short_desc, long_desc, ow_image,
-            img_one, img_two, img_three, img_four, img_five, img_six, status, google_map, join_date
-        ) VALUES (
-            '$subname', '$slug', '$is_parent', '$ow_name', '$ow_email', '$ow_phone', '$district', '$division', '$location',
-            '$price', '$bed', '$kitchen', '$washroom', '$totalRoom', '$areaSize', '$floor', '$rank', '$decoration',
-            '$desk', '$wifi', '$hottub', '$currency', '$breakfast', '$restourant', '$ac', '$pool', '$park', '$gym', '$luggage',
-            '$drawing', '$dinning', '$balcony', '$garage', '$availabe', '$sdesc', '$ldesc', '$imgOwn',
-            '$img1', '$img2', '$img3', '$img4', '$img5', '$img6', '$status', '$map', NOW()
-        )";
-
-        $addQuery = mysqli_query($db, $addSubCategorySql);
-        if ($addQuery) {
-            header("Location: sellerDashboard.php?do=allRentProducts");
-            exit;
-        } else {
-            die("Mysql Error: " . mysqli_error($db));
-        }
-    }
-}
 
                   else if ( $do == 'Edit' ) { ?>    
 
