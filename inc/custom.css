@@ -805,3 +805,31 @@ footer .nav-link:hover {
     font-size: 13px;
 
 }
+
+
+/*SELLER DASHBOARD CUSTOM DESIGN*/
+body, .main_body {
+        background-color: #FFFFFF ;
+      }
+      #sidebar-nav {
+          width: 200px;
+      }
+
+      a.list-group-item.border-end-0.d-inline-block.text-truncate {
+          background: #11101D;
+          color: #fff;
+          border: 0;
+          line-height: 4em;
+      }
+
+      a.list-group-item.border-end-0.d-inline-block.text-truncate:hover{
+        border-bottom: 1px solid #fff;        
+        color: #fff;
+        border-radius: 5px; 
+        transition: 0.2s ease-in-out;
+        background: #1d1b31;
+      }
+
+      a.border.rounded-3.p-1.text-decoration-none {
+          color: #11101D;
+      }

@@ -3,6 +3,7 @@
     ob_start();
     include"admin/inc/db.php"
 ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,20 +11,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Seller Dashboard</title>
     <?php include"inc/css.php" ?>
-    
+
   </head>
+  <body>
+    <section class="">
+      <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <!-- Side -->
+            <?php include"inc/asideseller.php" ?>
+            
 
-  <body style="background: #F4F4F4;">
+            <main class="col ps-md-2 pt-2 main_body">
+                
 
-    <main>
-      <section>
-        <div class="container-fluid">
-          <div class="row">
-          <?php include"inc/asideseller.php" ?>
-            <div class="col-10 p-4" style="background: #F4F4F4;">
-              <div class="d-flex justify-content-between align-items-center">
-                <h4 class="" style="margin: 0px auto; color:#023021;">Welcome to Seller Dashboard</h4>
-                <div>
+                <div class="d-flex justify-content-between pb-3">
+                  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none"><i class="fa-solid fa-backward"></i> Menu</a>
+
+                  <!-- For users login or nor -->
                   <?php  
                       if ( !empty( $_SESSION['email'] ) ) { ?>
                           <div class="dropdown">
@@ -42,14 +46,20 @@
                       <?php }
                   ?>
                 </div>
-              </div>
-              
-              
-              <hr class="pb-2">
-              <?php  
+
+                <div class="p-3">
+
+                 <?php  
                   $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
 
-                  if ( $do == 'Manage' ) { ?>
+                  if ( $do == "Home" ) { ?>
+                        <div class="page-header py-5">
+                          <h2 class="text-center" style="letter-spacing: 3px; color:#023021; font-size: 40px; font-weight:600;">Welcome To Seller Dashboard</h2>
+                        </div>
+                    <?php }
+
+
+                  else if ( $do == 'Manage' ) { ?>
                     <!-- STRAT: PACKAGE PART -->
                     <section class="">
                         <div class="container">
@@ -203,13 +213,13 @@
                       <table id="example" class="table table-striped table-hover table-bordered" >
                         <thead class="table-dark">
                           <tr>
-                            <th scope="col text-center">Id</th>
-                            <th scope="col text-center">Title</th>
-                            <th scope="col text-center">Category</th>
-                            <th scope="col text-center">Price</th>
-                            <th scope="col text-center">Status</th>
-                            <th scope="col text-center">Join Date</th>
-                            <th scope="col text-center">Action</th>
+                            <th scope="col" class="text-center">Id</th>
+                            <th scope="col" class="text-center">Title</th>
+                            <th scope="col" class="text-center">Category</th>
+                            <th scope="col" class="text-center">Price</th>
+                            <th scope="col" class="text-center">Status</th>
+                            <th scope="col" class="text-center">Join Date</th>
+                            <th scope="col" class="text-center">Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -277,8 +287,8 @@
                                 $i++;
                                 ?>
 
-                                <tr>
-                                  <th scope="row"><?php echo $i; ?></th>
+                                <tr class="text-center">
+                                  <th scope="row" class="text-center"><?php echo $i; ?></th>
                                   <td><?php echo $subcat_name; ?></td>
                                   <td>
                                     <?php  
@@ -294,7 +304,7 @@
                                       }
                                     ?>
                                   </td>
-                                  <td><?php echo $price; ?></td>
+                                  <td class="text-center">৳ <?php echo $price; ?></td>
                                   <td><?php 
                                     if ( $status == 1 ) { ?>
                                       <span class="badge text-bg-primary">Active</span>
@@ -312,13 +322,25 @@
                                       <span class="badge text-bg-danger">Not Active</span>
                                     <?php }
                                   ?></td>
-                                  <td><?php echo $join_date; ?></td>
+                                  <td class="text-center"><?php echo $join_date; ?></td>
                                   <td class="text-center">
                                     <div class="action-btn">
                                       <ul>
                                         <li>
-                                          <a href="sellerDashboard.php?do=Edit&editId=<?php echo $sub_id ; ?>" class="btn btn-outline-primary" style="margin: 0px 15px;"><i class="fa-solid fa-pencil"></i> Edit and check</a> 
-                                          <a href="" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#dId<?php echo $sub_id ; ?>"><i class="fa-regular fa-eye-slash"></i> Delete</a>
+
+                                            <?php  
+                                                if ( $status != 2 ) {
+                                                   
+                                                }
+                                                else { ?>
+
+                                                    <a href="sellerDashboard.php?do=Edit&editId=<?php echo $sub_id ; ?>" class="btn btn-outline-primary" style="margin: 0px 15px;"><i class="fa-solid fa-pencil"></i> Edit and check</a> 
+                                                    
+
+                                                <?php }
+                                            ?>
+                                            <a href="" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#dId<?php echo $sub_id ; ?>"><i class="fa-regular fa-eye-slash"></i> Delete</a>
+                                          
                                         </li>
                                       </ul>
                                     </div>
@@ -337,7 +359,7 @@
 
                                       <div class="modal-footer justify-content-around">
                                         <?php  
-                                            if ( $status == 1 ) {
+                                            if ( $status != 2 ) {
                                                 echo "Sorry! Please Contact with Support. Thanks";
                                             }
                                             else { ?>
@@ -1687,13 +1709,13 @@
                       <table id="example" class="table table-striped table-hover table-bordered" >
                         <thead class="table-dark">
                           <tr>
-                            <th scope="col">Invoice Id</th>
-                            <th scope="col">Package Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Transaction ID</th>
-                            <th scope="col">Transaction Date</th>
-                            <th scope="col">Renewal Date</th>
-                            <th scope="col">Status</th>
+                            <th scope="col" class="text-center">Invoice Id</th>
+                            <th scope="col" class="text-center">Package Name</th>
+                            <th scope="col" class="text-center">Price</th>
+                            <th scope="col" class="text-center">Transaction ID</th>
+                            <th scope="col" class="text-center">Transaction Date</th>
+                            <th scope="col" class="text-center">Renewal Date</th>
+                            <th scope="col" class="text-center">Status</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -1723,15 +1745,15 @@
                                 ?>
 
                                 <tr>
-                                  <th scope="row"><?php echo $i; ?></th>
-                                  <td><?php echo $package_name; ?></td>
-                                  <td><?php echo $price; ?></td>
-                                  <td><?php echo $transaction_id; ?></td>
-                                  <td><?php echo $transaction_date; ?></td>
-                                  <td><?php echo $renewal_date; ?></td>
-                                  <td><?php 
+                                  <th scope="row" class="text-center"><?php echo $i; ?></th>
+                                  <td class="text-center"><span class="badge text-bg-primary"><?php echo $package_name; ?></span></td>
+                                  <td class="text-center">৳ <?php echo $price; ?></td>
+                                  <td class="text-center"><?php echo $transaction_id; ?></td>
+                                  <td class="text-center"><?php echo $transaction_date; ?></td>
+                                  <td class="text-center"><?php echo $renewal_date; ?></td>
+                                  <td class="text-center"><?php 
                                     if ( $status == 1 ) { ?>
-                                      <span class="badge text-bg-primary">Active</span>
+                                      <span class="badge text-bg-success">Active</span>
                                     <?php }
                                     else if ( $status == 0 ) { ?>
                                       <span class="badge text-bg-warning">Pending</span>
@@ -2149,8 +2171,6 @@
 
                                 <div class="py-2">
 
-                                    <h6 style="color: #000;">Phone No: 01731-578788</h6>
-                                    <h6 style="color: #000;">Email Address: Shohanurrahmanshohan.cs@gmail.com</h6>
                                     <h6 style="color: #000;">Website: <a href="https://shohancs.com/">https://shohancs.com/</a></h6>
                                     <h6 style="color: #000;">Linkdin: <a href="https://www.linkedin.com/in/shohancs/">https://www.linkedin.com/in/shohancs/</a></h6>
                                     <h6 style="color: #000;">Github: <a href="https://github.com/shohancs">https://github.com/shohancs</a></h6>
@@ -2162,7 +2182,7 @@
                                             <div class="col-12 question_part">
                                                 <div class="bg-white " style="margin: 10% auto; width: 65%;">
                                                     <h4 class="px-5 py-3" style="background: #1a7e00; color: #fff;">Got Questions? Ask Away!</h4 class="p-3">
-                                                    <form action="" method="POST" class="px-5 py-5">
+                                                    <form action="" method="POST" class="px-5 py-5" id="contactForm">
                                                         <div class="row">
                                                             <!--  -->
                                                             <?php  
@@ -2260,26 +2280,56 @@
                                                         
                                                     </form>
                                                     <?php  
-                                                        if ( isset($_POST['masg']) ) {
-                                                            $fname  = mysqli_real_escape_string($db, $_POST['fname']);
-                                                            $lname  = mysqli_real_escape_string($db, $_POST['lname']);
-                                                            $email  = mysqli_real_escape_string($db, $_POST['email']);
-                                                            $phone  = mysqli_real_escape_string($db, $_POST['phone']);
-                                                            $msg    = mysqli_real_escape_string($db, $_POST['msg']);
-                                                            $role   = mysqli_real_escape_string($db, $_POST['role']);
-                                                            $status = mysqli_real_escape_string($db, $_POST['status']);
+                                                    if (isset($_POST['masg'])) {
+                                                        $fname  = mysqli_real_escape_string($db, $_POST['fname']);
+                                                        $lname  = mysqli_real_escape_string($db, $_POST['lname']);
+                                                        $email  = mysqli_real_escape_string($db, $_POST['email']);
+                                                        $phone  = mysqli_real_escape_string($db, $_POST['phone']);
+                                                        $msg    = mysqli_real_escape_string($db, $_POST['msg']);
+                                                        $role   = mysqli_real_escape_string($db, $_POST['role']);
+                                                        $status = mysqli_real_escape_string($db, $_POST['status']);
 
-                                                            $sql = "INSERT INTO message (role, status, fname, lname, email, phone, msg, join_date) VALUES('$role', '$status', '$fname', '$lname', '$email', '$phone', '$msg', now())";
-                                                            $query = mysqli_query($db, $sql);
+                                                        $sql = "INSERT INTO message (role, status, fname, lname, email, phone, msg, join_date) 
+                                                                VALUES('$role', '$status', '$fname', '$lname', '$email', '$phone', '$msg', now())";
 
-                                                            if ( $query ) {
-                                                                header('Location: sellerDashboard.php?do=Support');
-                                                            }
-                                                            else {
-                                                                die("Mysqli_Error" . mysqli_error($db));
-                                                            }
+                                                        $query = mysqli_query($db, $sql);
+
+                                                        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+
+                                                        if ($query) {
+                                                            // ✅ SweetAlert দেখানো হবে, তারপর redirect
+                                                            echo "
+                                                            <script>
+                                                                Swal.fire({
+                                                                    title: 'Success!',
+                                                                    text: 'Message sent successfully!',
+                                                                    icon: 'success',
+                                                                    confirmButtonColor: '#3085d6',
+                                                                    confirmButtonText: 'OK'
+                                                                }).then((result) => {
+                                                                    if (result.isConfirmed) {
+                                                                        window.location = 'sellerDashboard.php?do=Support';
+                                                                    }
+                                                                });
+                                                            </script>
+                                                            ";
+                                                        } else {
+                                                            // ❌ Error হলে alert দেখাবে
+                                                            $error = mysqli_error($db);
+                                                            echo "
+                                                            <script>
+                                                                Swal.fire({
+                                                                    title: 'Error!',
+                                                                    text: 'Something went wrong: " . addslashes($error) . "',
+                                                                    icon: 'error',
+                                                                    confirmButtonColor: '#d33'
+                                                                });
+                                                            </script>
+                                                            ";
                                                         }
+                                                    }
                                                     ?>
+
                                                 </div>
                                             </div>
 
@@ -3951,22 +4001,42 @@
                   } 
                 }
               ?>
-          </div>
+                 
+                  
+                </div>
+                
+            </main>
         </div>
-      </section>
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </div>
+    </section>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.3.4/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.5/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.5/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.5/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.5/js/buttons.print.min.js"></script>
+
+    <script>
+      new DataTable('#example', {
+          layout: {
+              topStart: {
+                  buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+              }
+          }
+      });
+    </script>
 
 
-    <?php 
+
+    <?php  
       ob_end_flush();
     ?>
   </body>
-
-
-
-  
 </html>
