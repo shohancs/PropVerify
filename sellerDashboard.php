@@ -2367,13 +2367,13 @@
                       <table id="example" class="table table-striped table-hover table-bordered" >
                         <thead class="table-dark">
                           <tr>
-                            <th scope="col text-center">Id</th>
-                            <th scope="col text-center">Title</th>
-                            <th scope="col text-center">Category</th>
-                            <th scope="col text-center">Price</th>
-                            <th scope="col text-center">Status</th>
-                            <th scope="col text-center">Join Date</th>
-                            <th scope="col text-center">Action</th>
+                            <th scope="col " class="text-center">Id</th>
+                            <th scope="col " class="text-center">Title</th>
+                            <th scope="col " class="text-center">Category</th>
+                            <th scope="col " class="text-center">Price</th>
+                            <th scope="col " class="text-center">Status</th>
+                            <th scope="col " class="text-center">Join Date</th>
+                            <th scope="col " class="text-center">Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -2441,9 +2441,9 @@
                                 $i++;
                                 ?>
 
-                                <tr>
-                                  <th scope="row"><?php echo $i; ?></th>
-                                  <td><?php echo $subcat_name; ?></td>
+                                <tr class="text-center">
+                                  <th scope="row" class="text-center"><?php echo $i; ?></th>
+                                  <td><?php echo substr($subcat_name, 0, 25) ; ?>...</td>
                                   <td>
                                     <?php  
                                       $rentcategorySql = "SELECT * FROM buy_category WHERE id = '$is_parent' AND status = 1 ORDER BY name ASC";
@@ -2458,7 +2458,7 @@
                                       }
                                     ?>
                                   </td>
-                                  <td><?php echo $price; ?></td>
+                                  <td class="text-center">৳ <?php echo $price; ?></td>
                                   <td><?php 
                                     if ( $status == 1 ) { ?>
                                       <span class="badge text-bg-primary">Active</span>
@@ -2476,13 +2476,25 @@
                                       <span class="badge text-bg-danger">Not Active</span>
                                     <?php }
                                   ?></td>
-                                  <td><?php echo $join_date; ?></td>
+                                  <td class="text-center"><?php echo $join_date; ?></td>
                                   <td class="text-center">
                                     <div class="action-btn">
                                       <ul>
                                         <li>
-                                          <a href="sellerDashboard.php?do=buyEdit&editId=<?php echo $sub_id ; ?>" class="btn btn-outline-primary" style="margin: 0px 15px;"><i class="fa-solid fa-pencil"></i> Edit and check</a> 
-                                          <a href="" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#dId<?php echo $sub_id ; ?>"><i class="fa-regular fa-eye-slash"></i> Delete</a>
+
+                                            <?php  
+                                                if ( $status != 2 ) {
+                                                   
+                                                }
+                                                else { ?>
+
+                                                    <a href="sellerDashboard.php?do=buyEdit&editId=<?php echo $sub_id ; ?>" class="btn btn-outline-primary" style="margin: 0px 15px;"><i class="fa-solid fa-pencil"></i> Edit and check</a> 
+                                                    
+
+                                                <?php }
+                                            ?>
+                                            <a href="" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#dId<?php echo $sub_id ; ?>"><i class="fa-regular fa-eye-slash"></i> Delete</a>
+                                          
                                         </li>
                                       </ul>
                                     </div>
@@ -2501,7 +2513,7 @@
 
                                       <div class="modal-footer justify-content-around">
                                         <?php  
-                                            if ( $status == 1 ) {
+                                            if ( $status != 2 ) {
                                                 echo "Sorry! Please Contact with Support. Thanks";
                                             }
                                             else { ?>
