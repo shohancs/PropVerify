@@ -2593,7 +2593,7 @@
                                 $catNameSql = "SELECT name FROM buy_category WHERE id = '$catId'";
                                 $catNameQuery = mysqli_query($db, $catNameSql);
                                 $catName = mysqli_fetch_assoc($catNameQuery)['name'] ?? 'Category';
-                                $limitMessages[] = "<h1 style='color: red; text-align: center;'>$catName Limit is Over!</h1>";
+                                $limitMessages[] = "<h6 style='color: red; text-align: center;'>$catName Limit is Over!</h6>";
                             }
                         }
 
