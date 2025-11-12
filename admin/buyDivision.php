@@ -92,7 +92,15 @@
 														      <td class="text-center"><?php echo $name; ?></td>
 														      <td class="text-center"><?php echo $priority; ?></td>
 														      <td class="text-center">
-															  	
+															  	<?php  
+															  		$childSql = "SELECT * FROM buy_subcategory WHERE division_id ='$id' AND status=1 ORDER BY subcat_name ASC";
+																	$childQuery = mysqli_query($db, $childSql);
+																	$childSqlCount = mysqli_num_rows($childQuery);
+
+																	?>
+																	<span class="badge text-bg-warning"><?php echo $childSqlCount; ?></span>
+																	<?php
+															  	?>
 														      </td>
 														      <td class="text-center">
 														      	<?php  

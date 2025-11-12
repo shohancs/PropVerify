@@ -16,7 +16,7 @@
                             $join_date      = $row['join_date'];
                             ?>
                                 <li class="nav-item me-3">
-                                    <a class="nav-link district border" href="divSerch.php?dId=<?php echo $id; ?>"><?php echo $name; ?> 
+                                    <a class="nav-link district border" href="buyDivSearch.php?dId=<?php echo $id; ?>"><?php echo $name; ?> 
                                     <?php  
                                         $childSql = "SELECT * FROM buy_subcategory WHERE division_id ='$id' AND status=1 ORDER BY subcat_name ASC";
                                         $childQuery = mysqli_query($db, $childSql);

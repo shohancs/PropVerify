@@ -147,7 +147,7 @@
 														}
 														?>
 													</td>
-													<td class="text-center"> <?php echo $subcat_name; ?></td>
+													<td class="text-center"> <?php echo substr($subcat_name, 0, 25) ; ?>...</td>
 													<td class="text-center"> <?php echo substr($slug, 0, 10); ?>..</td>
 													<td class="text-center"><span class="badge rounded-pill text-bg-primary"><?php echo $cat_name; ?></span></td>
 													<td class="text-center"><?php echo $ow_name; ?></td>
