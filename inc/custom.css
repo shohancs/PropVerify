@@ -833,3 +833,11 @@ body, .main_body {
       a.border.rounded-3.p-1.text-decoration-none {
           color: #11101D;
       }
+
+      /*Back to top btn*/
+      #btn-back-to-top {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          display: none;
+        }

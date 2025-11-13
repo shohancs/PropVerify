@@ -15,16 +15,16 @@
                 <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-arrow-right" style="padding: 0 10px 0px 0px;"></i> Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa-solid fa-arrow-right" style="padding: 0 10px 0px 0px;"></i> Rent</a>
+                <a class="nav-link" href="rent.php"><i class="fa-solid fa-arrow-right" style="padding: 0 10px 0px 0px;"></i> Rent</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa-solid fa-arrow-right" style="padding: 0 10px 0px 0px;"></i> Buy</a>
+                <a class="nav-link" href="buy.php"><i class="fa-solid fa-arrow-right" style="padding: 0 10px 0px 0px;"></i> Buy</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa-solid fa-arrow-right" style="padding: 0 10px 0px 0px;"></i> Blog</a>
+                <a class="nav-link" href="blog.php"><i class="fa-solid fa-arrow-right" style="padding: 0 10px 0px 0px;"></i> Blog</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa-solid fa-arrow-right" style="padding: 0 10px 0px 0px;"></i> About Us</a>
+                <a class="nav-link" href="about.php"><i class="fa-solid fa-arrow-right" style="padding: 0 10px 0px 0px;"></i> About Us</a>
               </li>
             </ul>
            </div>
@@ -40,7 +40,7 @@
                 <a class="nav-link" href="#"><i class="fa-regular fa-envelope" style="padding: 0 10px 0px 0px;"></i> rentbuyhaven@gmail.com</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa-solid fa-phone" style="padding: 0 10px 0px 0px;"></i> +880 1789654789</a>
+                <a class="nav-link" href="#"><i class="fa-solid fa-phone" style="padding: 0 10px 0px 0px;"></i> +880 8888888888</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa-solid fa-map-pin" style="padding: 0 10px 0px 0px;"></i> Agargaon, Dhaka, Bangladesh</a>
@@ -54,7 +54,50 @@
       </div>      
     </div>
     <hr>
-      <p class="text-center py-3">&copy;2024 by RentBuyHaven Ltd. All Rights Reserved.</p>
+    <div class="container">
+      <div class="d-flex justify-content-between py-3">
+        <p class="">&copy;2025 by RentBuyHaven Ltd. All Rights Reserved.</p>
+        <p class="">Developed By <a href="https://shohancs.com/" target="_blank">shohancs.com</a></p>
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-danger btn-floating btn-lg"
+        id="btn-back-to-top"
+        >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+      //Get the button
+      let mybutton = document.getElementById("btn-back-to-top");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      // When the user clicks on the button, scroll to the top of the document
+      mybutton.addEventListener("click", backToTop);
+
+      function backToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+    </div>
+      
+      
   </footer>
    
    
