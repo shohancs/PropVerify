@@ -1728,25 +1728,54 @@
                             
                         </form>
                         <?php  
-                            if ( isset($_POST['masg']) ) {
-                                $fname  = mysqli_real_escape_string($db, $_POST['fname']);
-                                $lname  = mysqli_real_escape_string($db, $_POST['lname']);
-                                $email  = mysqli_real_escape_string($db, $_POST['email']);
-                                $phone  = mysqli_real_escape_string($db, $_POST['phone']);
-                                $msg    = mysqli_real_escape_string($db, $_POST['msg']);
-                                $role   = mysqli_real_escape_string($db, $_POST['role']);
-                                $status = mysqli_real_escape_string($db, $_POST['status']);
+                        if (isset($_POST['masg'])) {
+                            $fname  = mysqli_real_escape_string($db, $_POST['fname']);
+                            $lname  = mysqli_real_escape_string($db, $_POST['lname']);
+                            $email  = mysqli_real_escape_string($db, $_POST['email']);
+                            $phone  = mysqli_real_escape_string($db, $_POST['phone']);
+                            $msg    = mysqli_real_escape_string($db, $_POST['msg']);
+                            $role   = mysqli_real_escape_string($db, $_POST['role']);
+                            $status = mysqli_real_escape_string($db, $_POST['status']);
 
-                                $sql = "INSERT INTO message (role, status, fname, lname, email, phone, msg, join_date) VALUES('$role', '$status', '$fname', '$lname', '$email', '$phone', '$msg', now())";
-                                $query = mysqli_query($db, $sql);
+                            $sql = "INSERT INTO message (role, status, fname, lname, email, phone, msg, join_date) 
+                                    VALUES('$role', '$status', '$fname', '$lname', '$email', '$phone', '$msg', now())";
 
-                                if ( $query ) {
-                                    header('Location: index.php');
-                                }
-                                else {
-                                    die("Mysqli_Error" . mysqli_error($db));
-                                }
+                            $query = mysqli_query($db, $sql);
+
+                            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+
+                            if ($query) {
+                                // ✅ SweetAlert দেখানো হবে, তারপর redirect
+                                echo "
+                                <script>
+                                    Swal.fire({
+                                        title: 'Success!',
+                                        text: 'Message sent successfully!',
+                                        icon: 'success',
+                                        confirmButtonColor: '#3085d6',
+                                        confirmButtonText: 'OK'
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            window.location = 'index.php';
+                                        }
+                                    });
+                                </script>
+                                ";
+                            } else {
+                                // ❌ Error হলে alert দেখাবে
+                                $error = mysqli_error($db);
+                                echo "
+                                <script>
+                                    Swal.fire({
+                                        title: 'Error!',
+                                        text: 'Something went wrong: " . addslashes($error) . "',
+                                        icon: 'error',
+                                        confirmButtonColor: '#d33'
+                                    });
+                                </script>
+                                ";
                             }
+                        }
                         ?>
                     </div>
                 </div>

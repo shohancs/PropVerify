@@ -504,7 +504,7 @@
 
     
     <!-- START: QUESTION PART -->
-     <section class="">
+     <section class="pb-5">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8 question_part">
@@ -512,39 +512,151 @@
                         <h4 class="px-5 py-3" style="background: #1a7e00; color: #fff;">Got Questions? Ask Away!</h4 class="p-3">
                         <form action="" method="POST" class="px-5 py-5">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">First Name</label>
-                                        <input type="text" name="fname" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Last Name</label>
-                                        <input type="text" name="lname" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Email Address</label>
-                                        <input type="email" name="email" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Phone</label>
-                                        <input type="tel" name="phone" class="form-control" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
-                                    </div>
-                                </div>
+                                <!--  -->
+                                <?php  
+                                    if ( !empty( $_SESSION['email'] ) ) { ?>
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Message</label>
+                                            <textarea name="msg" id="" class="form-control" placeholder="write here..." rows="5" required></textarea>
+                                        </div>
+                                        <div class="d-grid gap-2">
+                                            <?php  
+                                                if ( isset( $_SESSION['email'] ) ) {
+                                                    $sesId = $_SESSION['email'];
+
+                                                    $sql = "SELECT * FROM role WHERE email='$sesId'";
+                                                    $query = mysqli_query($db, $sql);
+
+                                                    while ( $row = mysqli_fetch_assoc($query) ) {
+                                                        $id             = $row['id'];
+                                                        $name           = $row['name'];
+                                                        $email          = $row['email'];
+                                                        $phone          = $row['phone'];
+                                                        $address        = $row['address'];
+                                                        $password       = $row['password'];
+                                                        $role           = $row['role'];
+                                                        $image          = $row['image'];
+                                                        $nid            = $row['nid'];
+                                                        $status         = $row['status'];
+                                                        ?>
+                                                        <input type="hidden" name="fname" value="<?php echo $name; ?>">
+                                                        <input type="hidden" name="email" value="<?php echo $email; ?>">
+                                                        <input type="hidden" name="phone" value="<?php echo $phone; ?>">
+                                                        <input type="hidden" name="role" value="<?php echo $role; ?>">
+                                                        <?php
+                                                    }
+                                                }
+                                            ?>
+                                            <input type="hidden" name="status" value="2">
+                                            
+                                            <!--  -->
+                                            <?php  
+                                                if ( !empty( $_SESSION['email'] ) ) { ?>
+                                                    <input type="submit" name="masg" value="SUBMIT" class="btn btn-primary quBtn">
+                                                <?php }
+                                                else { ?>
+                                                    <div class="alert alert-info my-4 text-center" role="alert">
+                                                      Login to reserve you service. <a href="login.php">Click Here</a>
+                                                    </div>
+                                               <?php }
+                                            ?>
+                                            <!--  -->
+                                            
+                                        </div>
+                                    <?php }
+                                    else { ?>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">First Name</label>
+                                                <input type="text" name="fname" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Last Name</label>
+                                                <input type="text" name="lname" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Email Address</label>
+                                                <input type="email" name="email" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Phone</label>
+                                                <input type="tel" name="phone" class="form-control" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Message</label>
+                                            <textarea name="msg" id="" class="form-control" placeholder="write here..." rows="5" required></textarea>
+                                        </div>
+                                        <div class="d-grid gap-2">
+                                            <input type="hidden" name="status" value="2">
+                                            <input type="hidden" name="role" value="3">
+                                            <input type="submit" name="masg" value="SUBMIT" class="btn btn-primary quBtn">
+                                            
+                                        </div>
+                                   <?php }
+                                ?>
+                                <!--  -->
+                                
                             </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Message</label>
-                                <textarea name="desb" id="" class="form-control" placeholder="write here..." rows="5" ></textarea>
-                            </div>
-                            <div class="d-grid gap-2">
-                                <input type="submit" value="SUBMIT" class="btn btn-primary quBtn">
-                            </div>
+                            
                         </form>
+                        <?php  
+                        if (isset($_POST['masg'])) {
+                            $fname  = mysqli_real_escape_string($db, $_POST['fname']);
+                            $lname  = mysqli_real_escape_string($db, $_POST['lname']);
+                            $email  = mysqli_real_escape_string($db, $_POST['email']);
+                            $phone  = mysqli_real_escape_string($db, $_POST['phone']);
+                            $msg    = mysqli_real_escape_string($db, $_POST['msg']);
+                            $role   = mysqli_real_escape_string($db, $_POST['role']);
+                            $status = mysqli_real_escape_string($db, $_POST['status']);
+
+                            $sql = "INSERT INTO message (role, status, fname, lname, email, phone, msg, join_date) 
+                                    VALUES('$role', '$status', '$fname', '$lname', '$email', '$phone', '$msg', now())";
+
+                            $query = mysqli_query($db, $sql);
+
+                            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+
+                            if ($query) {
+                                // ✅ SweetAlert দেখানো হবে, তারপর redirect
+                                echo "
+                                <script>
+                                    Swal.fire({
+                                        title: 'Success!',
+                                        text: 'Message sent successfully!',
+                                        icon: 'success',
+                                        confirmButtonColor: '#3085d6',
+                                        confirmButtonText: 'OK'
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            window.location = 'index.php';
+                                        }
+                                    });
+                                </script>
+                                ";
+                            } else {
+                                // ❌ Error হলে alert দেখাবে
+                                $error = mysqli_error($db);
+                                echo "
+                                <script>
+                                    Swal.fire({
+                                        title: 'Error!',
+                                        text: 'Something went wrong: " . addslashes($error) . "',
+                                        icon: 'error',
+                                        confirmButtonColor: '#d33'
+                                    });
+                                </script>
+                                ";
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
 
@@ -552,7 +664,7 @@
                     <div class="">
                         <h1 class="text-white pb-3" >Rent Buy Haven Provide Safe, Trusted And Reliable Collection!</h1>
                         <p class="text-white fw-light pb-3" style="">We offer customers reliable and regular collection of trash and materials, on a scheduled or call basis, with a safe and unique level of service for family.</p>
-                        <a href="" class="quPartBtn">GET START NOW</a>
+                        <a href="packages.php" class="quPartBtn">GET START NOW</a>
 
                         <div class="row d-flex align-items-center pt-5 mt-4">
                             <div class="col-lg-3" style="text-align: center;">
