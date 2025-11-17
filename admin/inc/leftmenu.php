@@ -85,9 +85,9 @@
 					<ul>
 						<li> <a href="package.php?do=Manage"><i class="bx bx-radio-circle"></i>All Packages</a>
 						</li>
-						<li> <a href="package.php?do=Manage"><i class="bx bx-radio-circle"></i>Active Packages</a>
+						<li> <a href="package.php?do=ActivePackage"><i class="bx bx-radio-circle"></i>Active Packages</a>
 						</li>
-						<li> <a href="package.php?do=Manage"><i class="bx bx-radio-circle"></i>Expire Packages</a>
+						<li> <a href="package.php?do=ExpirePackage"><i class="bx bx-radio-circle"></i>Expire Packages</a>
 						</li>
 					</ul>
 				</li>

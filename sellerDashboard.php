@@ -1758,6 +1758,9 @@
                                     else if ( $status == 0 ) { ?>
                                       <span class="badge text-bg-warning">Pending</span>
                                     <?php }
+                                    else if ( $status == 2 ) { ?>
+                                      <span class="badge text-bg-danger">Expire! Need to Reniew</span>
+                                    <?php }
                                   ?></td>
                                 </tr>
 
