@@ -85,8 +85,26 @@
 					<ul>
 						<li> <a href="package.php?do=Manage"><i class="bx bx-radio-circle"></i>All Packages</a>
 						</li>
-						<li> <a href="packageControl.php?do=Manage"><i class="bx bx-radio-circle"></i>Transactions Control</a>
+						<li> <a href="package.php?do=Manage"><i class="bx bx-radio-circle"></i>Active Packages</a>
 						</li>
+						<li> <a href="package.php?do=Manage"><i class="bx bx-radio-circle"></i>Expire Packages</a>
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class='bx bx-category'></i>
+						</div>
+						<div class="menu-title">Transactions</div>
+					</a>
+					<ul>
+						<li> <a href="packageControl.php?do=PendingTransaction"><i class="bx bx-radio-circle"></i>Pending Transactions</a>
+						</li>
+						<li> <a href="packageControl.php?do=ActiveTransaction"><i class="bx bx-radio-circle"></i>Active Transactions</a>
+						</li>
+						<li> <a href="packageControl.php?do=Manage"><i class="bx bx-radio-circle"></i>All Transactions</a>
+						</li>					
 					</ul>
 				</li>
 

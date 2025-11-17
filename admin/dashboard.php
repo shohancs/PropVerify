@@ -40,8 +40,15 @@
 								<div class="d-flex align-items-center justify-content-between">
 									<div>
 										<p class="mb-0 text-white">Verified Rent Properties</p>
-										<h4 class="my-1 text-white">34.46%</h4>
-										<p class="mb-0 font-13 text-white"><i class="bx bxs-down-arrow align-middle"></i>12.2% from last week</p>
+										<h4 class="my-1 text-white">
+											<?php  
+												$vrp_sql = "SELECT * FROM rent_subcategory WHERE status IN (3,4)";
+												$vrpQuery = mysqli_query($db, $vrp_sql);
+												$vrpCount = mysqli_num_rows($vrpQuery);
+
+												echo $vrpCount;
+											?>
+										</h4>
 									</div>
 									<div class="widgets-icons bg-light-transparent text-white"><i class="bx bx-line-chart-down"></i>
 									</div>
@@ -56,8 +63,15 @@
 								<div class="d-flex align-items-center justify-content-between">
 									<div>
 										<p class="mb-0 text-white">Verified Buy Properties</p>
-										<h4 class="my-1 text-white">34.46%</h4>
-										<p class="mb-0 font-13 text-white"><i class="bx bxs-down-arrow align-middle"></i>12.2% from last week</p>
+										<h4 class="my-1 text-white">
+											<?php  
+												$vbp_sql = "SELECT * FROM buy_subcategory WHERE status IN (3,4)";
+												$vbpQuery = mysqli_query($db, $vbp_sql);
+												$vbpCount = mysqli_num_rows($vbpQuery);
+
+												echo $vbpCount;
+											?>
+										</h4>
 									</div>
 									<div class="widgets-icons bg-light-transparent text-white"><i class="bx bx-line-chart-down"></i>
 									</div>
@@ -72,8 +86,38 @@
 								<div class="d-flex align-items-center justify-content-between">
 									<div>
 										<p class="mb-0 text-white">Pending Transactions</p>
-										<h4 class="my-1 text-white">34.46%</h4>
-										<p class="mb-0 font-13 text-white"><i class="bx bxs-down-arrow align-middle"></i>12.2% from last week</p>
+										<h4 class="my-1 text-white">
+											<?php  
+												$pt_sql = "SELECT * FROM transactions WHERE status=0";
+												$ptQuery = mysqli_query($db, $pt_sql);
+												$ptCount = mysqli_num_rows($ptQuery);
+
+												echo $ptCount;
+											?>
+										</h4>
+									</div>
+									<div class="widgets-icons bg-light-transparent text-white"><i class="bx bx-line-chart-down"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="card radius-10 bg-warning">
+							<div class="card-body">
+								<div class="d-flex align-items-center justify-content-between">
+									<div>
+										<p class="mb-0 text-white">Active Packages</p>
+										<h4 class="my-1 text-white">
+											<?php  
+												$pt_sql = "SELECT * FROM transactions WHERE status=1";
+												$ptQuery = mysqli_query($db, $pt_sql);
+												$ptCount = mysqli_num_rows($ptQuery);
+
+												echo $ptCount;
+											?>
+										</h4>
 									</div>
 									<div class="widgets-icons bg-light-transparent text-white"><i class="bx bx-line-chart-down"></i>
 									</div>
@@ -88,8 +132,15 @@
 								<div class="d-flex align-items-center justify-content-between">
 									<div>
 										<p class="mb-0 text-white">Expiring Packages</p>
-										<h4 class="my-1 text-white">34.46%</h4>
-										<p class="mb-0 font-13 text-white"><i class="bx bxs-down-arrow align-middle"></i>12.2% from last week</p>
+										<h4 class="my-1 text-white">
+											<?php  
+												$pt_sql = "SELECT * FROM transactions WHERE renewal_date < CURDATE()";
+												$ptQuery = mysqli_query($db, $pt_sql);
+												$ptCount = mysqli_num_rows($ptQuery);
+
+												echo $ptCount;
+											?>
+										</h4>
 									</div>
 									<div class="widgets-icons bg-light-transparent text-white"><i class="bx bx-line-chart-down"></i>
 									</div>

@@ -133,6 +133,246 @@
 						</div>
 					<?php }
 
+					else if ( $do == "ActiveTransaction" ) { ?>
+						<!--breadcrumb-->
+						<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+							<div class="breadcrumb-title pe-3">Manage</div>
+							<div class="ps-3">
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb mb-0 p-0">
+										<li class="breadcrumb-item"><a href="dashboard.php"><i class="bx bx-home-alt"></i></a>
+										</li>
+										<li class="breadcrumb-item active" aria-current="page">All Active Transaction Control</li>
+									</ol>
+								</nav>
+							</div>
+							<!-- START: For Right Part -->
+							<div class="ms-auto">
+								<div class="btn-group">
+									<div class="row row-cols-auto g-3">
+										<div class="col">
+											<a href="packageControl.php?do=Add" class="btn btn-dark px-5">Add New Renew</a>
+										</div>								
+									</div>
+								</div>
+							</div>
+							<!-- END: For Right Part -->
+						</div>
+						<!--end breadcrumb-->
+
+						<h6 class="mb-0 text-uppercase">ALL Active Transaction Control</h6>
+						<hr>
+						<div class="card">
+							<div class="card-body">
+								<div class="border p-3 radius-10">
+									<!-- START: DATATABLE -->
+									<div class="table-responsive">
+										<table class="table table-striped table-hover table-bordered"  id="example">
+										  <thead class="table-dark">
+										    <tr>
+										        <th scope="col text-center">Invoice Id</th>
+										        <th scope="col text-center">Email</th>
+					                            <th scope="col text-center">Package Name</th>
+					                            <th scope="col text-center">Price</th>
+					                            <th scope="col text-center">Transaction ID</th>
+					                            <th scope="col text-center">Transaction Date</th>
+					                            <th scope="col text-center">Renewal Date</th>
+					                            <th scope="col text-center">Status</th>
+					                            <th scope="col text-center">Action</th>
+										    </tr>
+										  </thead>
+
+										  <tbody>
+										  	<?php  
+
+										  		$rentDivSql = "SELECT * FROM transactions WHERE status=1 ORDER BY id DESC";
+										  		$rentDivQuery = mysqli_query( $db, $rentDivSql );
+										  		$rentDivCount = mysqli_num_rows($rentDivQuery);
+
+										  		if ( $rentDivCount == 0 ) { ?>
+										  			<div class="alert alert-danger text-center" role="alert">
+													  Sorry!! No data found in this datatable.
+													</div>
+										  		<?php }
+										  		else {
+										  			$i = 0;
+
+										  			while ( $row = mysqli_fetch_assoc( $rentDivQuery ) ) {
+										  				$id               = $row['id'];
+						                                $transaction_id   = $row['transaction_id'];
+						                                $user_email       = $row['user_email'];
+						                                $package_name     = $row['package_name'];
+						                                $price            = $row['price'];
+						                                $transaction_date = $row['transaction_date'];
+						                                $renewal_date     = $row['renewal_date'];
+						                                $status           = $row['status'];
+										  				$i++;
+										  				?>
+										  				
+										  					<tr>
+														      <th scope="row" class="text-center"><?php echo $i; ?></th>
+														      <td class="text-center"><?php echo $user_email; ?></td>
+														      <td class="text-center"><?php echo $package_name; ?></td>
+														      <td class="text-center"><?php echo $price; ?></td>
+														      <td class="text-center"><?php echo $transaction_id; ?></td>
+														      <td class="text-center"><?php echo $transaction_date; ?></td>
+														      <td class="text-center"><?php echo $renewal_date; ?></td>
+														      <td class="text-center">
+														      	<?php  
+														      		if ($status == 1) { ?>
+														      			<span class="badge text-bg-success">Active</span>
+														      		<?php }
+														      		else if ($status == 0) { ?>
+														      			<span class="badge text-bg-warning">Pending</span>
+														      		<?php }
+														      	?>
+														      </td>
+														      <td class="text-center">
+														      	<div class="action-btn">
+														      		<ul>
+														      			<li>
+														      				<a href="packageControl.php?do=Edit&editId=<?php echo $id; ?>" class="btn btn-outline-primary" style="margin: 0 15px;"><i class="fa-solid fa-pencil"></i> Edit</a> 
+														      			</li>
+														      		</ul>
+														      	</div>
+														      </td>
+														    </tr>
+										  				<?php
+										  			}
+										  		}
+
+
+										  	?>
+										    
+										  </tbody>
+										</table>
+									</div>							
+									<!-- END: DATATABLE -->	
+								</div>													
+							</div>
+						</div>
+					<?php }
+
+					else if ( $do == "PendingTransaction" ) { ?>
+						<!--breadcrumb-->
+						<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+							<div class="breadcrumb-title pe-3">Manage</div>
+							<div class="ps-3">
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb mb-0 p-0">
+										<li class="breadcrumb-item"><a href="dashboard.php"><i class="bx bx-home-alt"></i></a>
+										</li>
+										<li class="breadcrumb-item active" aria-current="page">All Pending Transaction Control</li>
+									</ol>
+								</nav>
+							</div>
+							<!-- START: For Right Part -->
+							<div class="ms-auto">
+								<div class="btn-group">
+									<div class="row row-cols-auto g-3">
+										<div class="col">
+											<a href="packageControl.php?do=Add" class="btn btn-dark px-5">Add New Renew</a>
+										</div>								
+									</div>
+								</div>
+							</div>
+							<!-- END: For Right Part -->
+						</div>
+						<!--end breadcrumb-->
+
+						<h6 class="mb-0 text-uppercase">ALL Pending Transaction Control</h6>
+						<hr>
+						<div class="card">
+							<div class="card-body">
+								<div class="border p-3 radius-10">
+									<!-- START: DATATABLE -->
+									<div class="table-responsive">
+										<table class="table table-striped table-hover table-bordered"  id="example">
+										  <thead class="table-dark">
+										    <tr>
+										        <th scope="col text-center">Invoice Id</th>
+										        <th scope="col text-center">Email</th>
+					                            <th scope="col text-center">Package Name</th>
+					                            <th scope="col text-center">Price</th>
+					                            <th scope="col text-center">Transaction ID</th>
+					                            <th scope="col text-center">Transaction Date</th>
+					                            <th scope="col text-center">Renewal Date</th>
+					                            <th scope="col text-center">Status</th>
+					                            <th scope="col text-center">Action</th>
+										    </tr>
+										  </thead>
+
+										  <tbody>
+										  	<?php  
+
+										  		$rentDivSql = "SELECT * FROM transactions WHERE status=0 ORDER BY id DESC";
+										  		$rentDivQuery = mysqli_query( $db, $rentDivSql );
+										  		$rentDivCount = mysqli_num_rows($rentDivQuery);
+
+										  		if ( $rentDivCount == 0 ) { ?>
+										  			<div class="alert alert-danger text-center" role="alert">
+													  Sorry!! No data found in this datatable.
+													</div>
+										  		<?php }
+										  		else {
+										  			$i = 0;
+
+										  			while ( $row = mysqli_fetch_assoc( $rentDivQuery ) ) {
+										  				$id               = $row['id'];
+						                                $transaction_id   = $row['transaction_id'];
+						                                $user_email       = $row['user_email'];
+						                                $package_name     = $row['package_name'];
+						                                $price            = $row['price'];
+						                                $transaction_date = $row['transaction_date'];
+						                                $renewal_date     = $row['renewal_date'];
+						                                $status           = $row['status'];
+										  				$i++;
+										  				?>
+										  				
+										  					<tr>
+														      <th scope="row" class="text-center"><?php echo $i; ?></th>
+														      <td class="text-center"><?php echo $user_email; ?></td>
+														      <td class="text-center"><?php echo $package_name; ?></td>
+														      <td class="text-center"><?php echo $price; ?></td>
+														      <td class="text-center"><?php echo $transaction_id; ?></td>
+														      <td class="text-center"><?php echo $transaction_date; ?></td>
+														      <td class="text-center"><?php echo $renewal_date; ?></td>
+														      <td class="text-center">
+														      	<?php  
+														      		if ($status == 1) { ?>
+														      			<span class="badge text-bg-success">Active</span>
+														      		<?php }
+														      		else if ($status == 0) { ?>
+														      			<span class="badge text-bg-warning">Pending</span>
+														      		<?php }
+														      	?>
+														      </td>
+														      <td class="text-center">
+														      	<div class="action-btn">
+														      		<ul>
+														      			<li>
+														      				<a href="packageControl.php?do=Edit&editId=<?php echo $id; ?>" class="btn btn-outline-primary" style="margin: 0 15px;"><i class="fa-solid fa-pencil"></i> Edit</a> 
+														      			</li>
+														      		</ul>
+														      	</div>
+														      </td>
+														    </tr>
+										  				<?php
+										  			}
+										  		}
+
+
+										  	?>
+										    
+										  </tbody>
+										</table>
+									</div>							
+									<!-- END: DATATABLE -->	
+								</div>													
+							</div>
+						</div>
+					<?php }
+
 					else if( $do == "Add" ) { ?>
 						<!--breadcrumb-->
 						<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
