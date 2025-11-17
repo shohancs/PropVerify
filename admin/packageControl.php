@@ -105,6 +105,9 @@
 														      		else if ($status == 0) { ?>
 														      			<span class="badge text-bg-warning">Pending</span>
 														      		<?php }
+														      		else if ($status == 2) { ?>
+														      			<span class="badge text-bg-danger">Expire</span>
+														      		<?php }
 														      	?>
 														      </td>
 														      <td class="text-center">
@@ -415,7 +418,7 @@
 												    <select name="user_email" class="form-select">
 												        <option value="">Seller All Email List</option>
 												        <?php  
-												            $rentDivSql = "SELECT * FROM transactions ORDER BY id DESC";
+												            $rentDivSql = "SELECT * FROM transactions WHERE renewal_date < CURDATE() ORDER BY id DESC";
 												            $rentDivQuery = mysqli_query($db, $rentDivSql);
 
 												            $emails = []; // Array to store unique emails

@@ -115,6 +115,7 @@
 														      		else if ($status == 0) { ?>
 														      			<span class="badge text-bg-danger">InActive</span>
 														      		<?php }
+
 														      	?>
 														      </td>
 														      <td class="text-center"><?php echo $join_date; ?></td>
@@ -221,7 +222,7 @@
 										  <tbody>
 										  	<?php  
 
-										  		$rentDivSql = "SELECT * FROM transactions WHERE renewal_date > CURDATE() ORDER BY id DESC";
+										  		$rentDivSql = "SELECT * FROM transactions WHERE renewal_date > CURDATE() AND status = 1 ORDER BY id DESC";
 										  		$rentDivQuery = mysqli_query( $db, $rentDivSql );
 										  		$rentDivCount = mysqli_num_rows($rentDivQuery);
 
