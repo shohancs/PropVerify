@@ -202,7 +202,7 @@
 										<h4 class="my-1 text-white">
 											<?php
 												// মোট ইনকাম (শুধু Active/Paid ইউজারদের)
-												$result = mysqli_query($db, "SELECT SUM(price) AS total_income FROM transactions WHERE status = 2");
+												$result = mysqli_query($db, "SELECT SUM(price) AS total_income FROM transactions WHERE status = 1");
 												$row = mysqli_fetch_assoc($result);
 												$total_income = $row['total_income'] ?? 0;
 
@@ -243,7 +243,7 @@ for($i = 29; $i >= 0; $i--) {
 
     $sql = "SELECT COALESCE(SUM(price), 0) AS income 
             FROM transactions 
-            WHERE status = 2 
+            WHERE status = 1 
               AND DATE(transaction_date) = '$date'";
     
     $res = mysqli_query($db, $sql);
