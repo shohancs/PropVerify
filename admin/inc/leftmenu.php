@@ -104,6 +104,8 @@
 						<li> <a href="packageControl.php?do=ActiveTransaction"><i class="bx bx-radio-circle"></i>Active Transactions</a>
 						</li>
 						<li> <a href="packageControl.php?do=Manage"><i class="bx bx-radio-circle"></i>All Transactions</a>
+						</li>	
+						<li> <a href="packageControl.php?do=RenewAlart"><i class="bx bx-radio-circle"></i>Renew Alart</a>
 						</li>					
 					</ul>
 				</li>
@@ -156,7 +158,11 @@
 						<div class="menu-title">Hotel Booking</div>
 					</a>
 					<ul>
-						<li> <a href="adminBooking.php?do=Manage"><i class="bx bx-radio-circle"></i>Booking Manage</a>
+						<li> <a href="adminBooking.php?do=Pending"><i class="bx bx-radio-circle"></i>Peding Booking</a>
+						</li>
+						<li> <a href="adminBooking.php?do=Active"><i class="bx bx-radio-circle"></i>Active Booking</a>
+						</li>
+						<li> <a href="adminBooking.php?do=Manage"><i class="bx bx-radio-circle"></i>All Booking Manage</a>
 						</li> 
 					</ul>
 				</li>

@@ -25,7 +25,7 @@
                 
 
                 <div class="d-flex justify-content-between pb-3">
-                  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none"><i class="fa-solid fa-backward"></i> Menu</a>
+                  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class=" p-1 text-decoration-none text-dark"><i class="fa-solid fa-backward"></i> Menu</a>
 
                   <!-- For users login or nor -->
                   <?php  
@@ -93,7 +93,7 @@
                                         ?>
 
                                         <div class="col-lg-4">
-                                            <div class="cards border border-light-subtle p-5 bg-light" style="border-radius: 10px; filter: drop-shadow(0px 0px 12px #ccc);">
+                                            <div class="cards border border-light-subtle p-5 bg-light" style="border-radius: 10px; filter: drop-shadow(0px 0px 12px #ccc); height: 50em;">
                                                 <?php  
                                                     if ( $id == 2 ) { ?>
                                                         <div class="text-cards">
@@ -1760,6 +1760,9 @@
                                     <?php }
                                     else if ( $status == 2 ) { ?>
                                       <span class="badge text-bg-danger">Expire! Need to Reniew</span>
+                                    <?php }
+                                    else if ( $status == 3 ) { ?>
+                                      <span class="badge text-bg-primary">Renew Alart!</span>
                                     <?php }
                                   ?></td>
                                 </tr>
