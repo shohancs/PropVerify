@@ -22,9 +22,9 @@ session_start();
     $post_data['total_amount'] = $price;
     $post_data['currency'] = "BDT";
     $post_data['tran_id'] = "SSLCZ_TEST_" . uniqid();
-    $post_data['success_url'] = "http://localhost/project/PROPERTY_RENTAL/success.php?price=" . urlencode($price) . "&pak=" . urlencode($pak) . "&email=" . urlencode($email); // Pass parameters to success.php
-    $post_data['fail_url'] = "http://localhost/project/PROPERTY_RENTAL/fail.php";
-    $post_data['cancel_url'] = "http://localhost/project/PROPERTY_RENTAL/cancel.php";
+    $post_data['success_url'] = "http://localhost/project/PropVerify/success.php?price=" . urlencode($price) . "&pak=" . urlencode($pak) . "&email=" . urlencode($email); // Pass parameters to success.php
+    $post_data['fail_url'] = "http://localhost/project/PropVerify/fail.php";
+    $post_data['cancel_url'] = "http://localhost/project/PropVerify/cancel.php";
 
     // Additional customer and shipping info
     $post_data['cus_name'] = "Test Customer";
@@ -35,7 +35,7 @@ session_start();
     $post_data['cus_state'] = "Dhaka";
     $post_data['cus_postcode'] = "1000";
     $post_data['cus_country'] = "Bangladesh";
-    $post_data['cus_phone'] = "01711111111";
+    $post_data['cus_phone'] = "01888888888";
     $post_data['ship_name'] = "testshohac4gx";
     $post_data['ship_add1'] = "Dhaka";
     $post_data['ship_add2'] = "Dhaka";

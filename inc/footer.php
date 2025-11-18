@@ -37,7 +37,7 @@
                 <a class="nav-link active" aria-current="page" href="#"><i class="fa-regular fa-clock" style="padding: 0 10px 0px 0px;"></i> Mon-Sat 8:00-6:30</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa-regular fa-envelope" style="padding: 0 10px 0px 0px;"></i> rentbuyhaven@gmail.com</a>
+                <a class="nav-link" href="#"><i class="fa-regular fa-envelope" style="padding: 0 10px 0px 0px;"></i> dummy@gmail.com</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa-solid fa-phone" style="padding: 0 10px 0px 0px;"></i> +880 8888888888</a>

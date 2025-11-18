@@ -32,7 +32,7 @@
 							<div class="mb-3">
 								<label for="">Email Address</label>
 								<div class="input-group form-group">
-				                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="enter your email..." aria-label="emailHelp" aria-describedby="basic-addon2" required autocomplete="off">
+				                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="enter your email..." aria-label="emailHelp" aria-describedby="basic-addon2" required autocomplete="off" value="seller@gmail.com">
 				                  <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-envelope"></i></span>
 				                </div>
 							</div>
@@ -40,7 +40,7 @@
 							<div class="mb-3">
 								<label for="">Password</label>
 								<div class="input-group form-group">
-				                  <input type="password" name="password" class="form-control" id="myInput" placeholder="enter your password..." required autocomplete="off">
+				                  <input type="password" name="password" class="form-control" id="myInput" placeholder="enter your password..." required autocomplete="off" value="12345">
 				                  <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-lock"></i></span>
 				                </div>
 							</div>

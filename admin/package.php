@@ -103,7 +103,22 @@
 										  					<tr>
 														      <th scope="row" class="text-center"><?php echo $i; ?></th>
 														      <td class="text-center"><?php echo $name; ?></td>
-														      <td class="text-center">count</td>
+														      <td class="text-center">
+																    <?php
+																    // এই প্যাকেজটা কতজন Active ইউজার ব্যবহার করছে (কাউন্ট করা হচ্ছে)
+																    $user_count_sql = "SELECT COUNT(*) AS active_users FROM transactions WHERE package_name = '$name' AND status = 1";
+																    $user_count_query = mysqli_query($db, $user_count_sql);
+																    $user_count_row = mysqli_fetch_assoc($user_count_query);
+																    $active_users = $user_count_row['active_users'];
+
+																    // সুন্দর করে দেখানো হচ্ছে
+																    if ($active_users > 0) {
+																        echo '<span class="badge bg-warning">' . $active_users . '</span>';
+																    } else {
+																        echo '<span class="badge bg-secondary">0</span>';
+																    }
+																    ?>
+																</td>
 														      <td class="text-center"><?php echo $basic_price; ?></td>
 														      <td class="text-center"><?php echo $discount_price; ?></td>
 														      <td class="text-center"><?php echo $renew; ?></td>
