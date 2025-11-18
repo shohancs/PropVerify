@@ -58,12 +58,12 @@
 										<form action="" method="POST">
 											<div class="mb-3">
 												<label for="email" class="form-label">Email Address</label>
-												<input type="email" name="email" class="form-control" id="email" placeholder="Email Address" required autocomplete="off">
+												<input type="email" name="email" class="form-control" id="email" placeholder="Email Address" required autocomplete="off" value="admin@gmail.com">
 											</div>
 											<div class="mb-3">
 												<label for="password" class="form-label">Enter Password</label>
 												<div class="input-group" id="show_hide_password">
-													<input type="password" name="password" class="form-control border-end-0" id="password" placeholder="Enter Password" required autocomplete="off"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+													<input type="password" name="password" class="form-control border-end-0" id="password" placeholder="Enter Password" required autocomplete="off" value="12345"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
 												</div>
 											</div>
 											<div class="col-12">
