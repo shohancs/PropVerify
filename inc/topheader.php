@@ -44,7 +44,7 @@
                                                     <button type="submit" class="btn btn-secondary">+ Add Property</button>
                                                 </form>
                                             </div>
-                                            <div class="">
+                                            <div class="d-flex">
                                                 <a href="login.php" class="btn btn-outline-warning btn-1 px-4  mx-3">Login</a>
                                                 <a href="register.php" class="btn btn-warning btn-2 px-4">SignUp </a>
                                             </div>
@@ -73,13 +73,13 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                                 </li>
-                                <li class="nav-item mx-4">
+                                <li class="nav-item top-nevi">
                                     <a class="nav-link" href="rent.php">Rent</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="buy.php">Buy</a>
                                 </li>
-                                <li class="nav-item mx-4">
+                                <li class="nav-item top-nevi">
                                     <a class="nav-link" href="blog.php">Blog</a>
                                 </li>
                                 <li class="nav-item">

@@ -842,4 +842,19 @@ body, .main_body {
           display: none;
         }
 
-        
+        .top-nevi{
+            margin: 0px 22px;
+        }
+
+    
+    /*RESPONSIVENESS*/
+    @media screen and (max-width: 576px) {
+        .top-nevi{
+            margin: 0px;
+        }
+
+    }
+
+    @media screen and (min-width: 576px) and (max-width: 992px) {
+
+    }
