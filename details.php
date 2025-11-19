@@ -306,7 +306,7 @@
 
                                                 }
                                             ?>
-                                            <h1 class="" style="letter-spacing: 2px; color:#023021; font-size: 35px; font-weight:600; text-transform: uppercase;">৳ <?php echo $price; ?> BDT</h1>
+                                            <h1 class="" style="letter-spacing: 2px; color:#023021; font-size: 35px; font-weight:600; text-transform: uppercase;">৳ <?php echo number_format($price); ?> BDT</h1>
                                             <h3 class="py-1" style="letter-spacing: 2px; color:#023021; font-size: 24px; font-weight:600; text-transform: capitalize;"><?php echo $subcat_name; ?></h3>
                                             <?php  
                                                 $divsql = "SELECT * FROM rent_division WHERE status=1 AND id='$division_id'";

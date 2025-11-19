@@ -270,7 +270,7 @@
                                                     <div>
                                                         <h4 class="" style="font-size: 17px; color: #1a7e00; filter: drop-shadow(0px 0px 12px #1a7e00);"><?php echo $catname; ?></h4>
                                                         <h5 class="fw-semibold py-2" style="text-align:justify; color:#023021; letter-spacing: 0.5px;"><?php echo $subcat_name; ?></h5>  
-                                                        <h4 class="fw-semibold" style="color:#023021; letter-spacing: 0.7px;">৳<?php echo $price; ?> BDT
+                                                        <h4 class="fw-semibold" style="color:#023021; letter-spacing: 0.7px;">৳<?php echo number_format($price) ; ?> BDT
                                                             
                                                          </h4>
                                                                                             
