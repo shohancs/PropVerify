@@ -8,6 +8,7 @@ body {
     color: #545454;
 }
 
+
 main {
     /* background-image: url(../assets/images/body.png);
     background-repeat: no-repeat;
@@ -846,12 +847,59 @@ body, .main_body {
             margin: 0px 22px;
         }
 
+        .mySwiper {
+          --swiper-slides-per-view: 3 !important; /* Desktop */
+        }
     
     /*RESPONSIVENESS*/
     @media screen and (max-width: 576px) {
         .top-nevi{
             margin: 0px;
         }
+
+        .fr-service {
+            flex-direction: column;
+        }
+
+        .seCard{
+            margin-bottom: 25px;
+        }
+        .bigFormate{
+            font-size: 23px !important;
+        }
+
+        .container {
+            overflow-x: hidden;
+        }
+
+        #btn-back-to-top {
+            position: fixed;
+            bottom: 95px;
+            right: 20px;
+            display: none ;
+        }
+
+        
+        .verifiction-owner .ow_img {
+            width: 10% !important;
+            border-radius: 50%;
+        }
+
+        .verifiction-owner {
+            margin-bottom: 18px;
+        }
+
+        .contact-back{
+            width: 80% !important;
+        }
+
+        .contact-devide{
+            flex-direction: column;
+        }
+
+      
+
+        
 
     }
 
