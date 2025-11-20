@@ -77,13 +77,13 @@
                                                     $priority_id    = $row['priority_id'];
                                                     ?>
                                         <div>
-                                            <h4 style="color: #023021; font-size: 25px;">Buy Details <?php echo $cat_name; ?> </h4>
+                                            <h4 class="renthead" style="color: #023021; font-size: 25px;">Buy Details <?php echo $cat_name; ?> </h4>
                                         </div>
                                         <div class="d-flex">
-                                            <a href="index.php"><h4 style="color:#545454; font-size: 17px; font-weight: 400; ">HOME</h4></a>
-                                            <h4 class="px-2" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
-                                            <a href="buy.php"><h4 style="color:#545454; font-size: 17px; font-weight: 400; ">BUY CATEGORY</h4></a>
-                                            <h4 class="px-2" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
+                                            <a href="index.php"><h4 class="shorttext" style="color:#545454; font-size: 17px; font-weight: 400; ">HOME</h4></a>
+                                            <h4 class="px-2 shorttext" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
+                                            <a href="buy.php"><h4 class="shorttext" style="color:#545454; font-size: 17px; font-weight: 400; ">BUY CATEGORY</h4></a>
+                                            <h4 class="px-2 shorttext" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
                                             
                                                     <a href="buy_products.php?pid=<?php echo $cat_id; ?>"><h4 style="color:#545454; font-size: 17px; font-weight: 400; "><?php echo $cat_name; ?></h4></a>
                                                     <?php
@@ -109,9 +109,9 @@
                         <div class="numbertext">1 / 6</div>
                         <?php
                             if (!empty($img_one)) {
-                                echo '<img src="admin/assets/images/buy_subcategory/' . $img_one . '" alt="" style="width:100%;height: 676px;object-fit: scale-down;">';
+                                echo '<img src="admin/assets/images/buy_subcategory/' . $img_one . '" alt="" class="sliderImges">';
                             } else {
-                                echo '<img src="admin/assets/images/dummy.jpg" alt="" style="width:100%;height: 676px;object-fit: scale-down;">';
+                                echo '<img src="admin/assets/images/dummy.jpg" alt="" class="sliderImges">';
                             }
                         ?>
                     </div>
@@ -120,9 +120,9 @@
                         <div class="numbertext">2 / 6</div>
                         <?php
                             if (!empty($img_two)) {
-                                echo '<img src="admin/assets/images/buy_subcategory/' . $img_two . '" alt="" style="width:100%;height: 676px;object-fit: scale-down;">';
+                                echo '<img src="admin/assets/images/buy_subcategory/' . $img_two . '" alt="" class="sliderImges">';
                             } else {
-                                echo '<img src="admin/assets/images/dummy.jpg" alt="" style="width:100%;height: 676px;object-fit: scale-down;">';
+                                echo '<img src="admin/assets/images/dummy.jpg" alt="" class="sliderImges">';
                             }
                         ?>
                     </div>
@@ -131,9 +131,9 @@
                         <div class="numbertext">3 / 6</div>
                         <?php
                             if (!empty($img_three)) {
-                                echo '<img src="admin/assets/images/buy_subcategory/' . $img_three . '" alt="" style="width:100%;height: 676px;object-fit: scale-down;">';
+                                echo '<img src="admin/assets/images/buy_subcategory/' . $img_three . '" alt="" class="sliderImges">';
                             } else {
-                                echo '<img src="admin/assets/images/dummy.jpg" alt="" style="width:100%;height: 676px;object-fit: scale-down;">';
+                                echo '<img src="admin/assets/images/dummy.jpg" alt="" class="sliderImges">';
                             }
                         ?>
                     </div>
@@ -142,9 +142,9 @@
                         <div class="numbertext">4 / 6</div>
                         <?php
                             if (!empty($img_four)) {
-                                echo '<img src="admin/assets/images/buy_subcategory/' . $img_four . '" alt="" style="width:100%;height: 676px;object-fit: scale-down;">';
+                                echo '<img src="admin/assets/images/buy_subcategory/' . $img_four . '" alt="" class="sliderImges">';
                             } else {
-                                echo '<img src="admin/assets/images/dummy.jpg" alt="" style="width:100%;height: 676px;object-fit: scale-down;">';
+                                echo '<img src="admin/assets/images/dummy.jpg" alt="" class="sliderImges">';
                             }
                         ?>
                     </div>
@@ -153,9 +153,9 @@
                         <div class="numbertext">5 / 6</div>
                         <?php
                             if (!empty($img_five)) {
-                                echo '<img src="admin/assets/images/buy_subcategory/' . $img_five . '" alt="" style="width:100%;height: 676px;object-fit: scale-down;">';
+                                echo '<img src="admin/assets/images/buy_subcategory/' . $img_five . '" alt="" class="sliderImges">';
                             } else {
-                                echo '<img src="admin/assets/images/dummy.jpg" alt="" style="width:100%;height: 676px;object-fit: scale-down;">';
+                                echo '<img src="admin/assets/images/dummy.jpg" alt="" class="sliderImges">';
                             }
                         ?>
                     </div>
@@ -164,9 +164,9 @@
                         <div class="numbertext">6 / 6</div>
                         <?php
                             if (!empty($img_six)) {
-                                echo '<img src="admin/assets/images/buy_subcategory/' . $img_six . '" alt="" style="width:100%;height: 676px;object-fit: scale-down;">';
+                                echo '<img src="admin/assets/images/buy_subcategory/' . $img_six . '" alt="" class="sliderImges">';
                             } else {
-                                echo '<img src="admin/assets/images/dummy.jpg" alt="" style="width:100%;height: 676px;object-fit: scale-down;">';
+                                echo '<img src="admin/assets/images/dummy.jpg" alt="" class="sliderImges">';
                             }
                         ?>
                     </div>
@@ -340,7 +340,7 @@
 
                                         if ( empty( $priority_id == 4 ) ) {
                                             if ( $priority_id == 3 ) { ?>
-                                                <div class="bg-light px-5 py-4 me-5">
+                                                <div class="bg-light px-5 py-4 me-5 featuresFacts">
                                                     <?php  
 
                                                     if ( $priority_id == 2 || $priority_id == 3 ) { 
@@ -394,7 +394,7 @@
                                             else { 
 
                                                 if ( $priority_id == 2 ) { ?>
-                                                    <div class="bg-light px-4 py-4 me-5">
+                                                    <div class="bg-light px-4 py-4 me-5 featuresFacts">
                                                         <div class="d-flex ">
                                                             <div><i class="fa-solid fa-bed" style="padding-right: 11px"></i></div>
                                                             <div><p><?php echo $bed; ?> Bedrooms</p></div>
@@ -452,7 +452,7 @@
                                                         ?>
                                                     </div>
 
-                                                    <div class="bg-light px-4 py-4">
+                                                    <div class="bg-light px-4 py-4 featuresFacts">
                                                         <?php  
                                                             if ( $priority_id != 2 ) { ?>
                                                                 <div class="d-flex ">
@@ -547,7 +547,7 @@
 
                                                     <?php  
                                                         if ( $priority_id == 2 ) { ?>
-                                                            <div class="bg-light px-4 py-4 ms-5">
+                                                            <div class="bg-light px-4 py-4 ms-5 featuresFacts">
                                                                 <?php  
                                                                     if ( $decoration == 1 ) {?>
                                                                         <div class="d-flex ">
@@ -624,7 +624,7 @@
                                                     ?>
                                                 <?php }
                                                 else { ?>
-                                                    <div class="bg-light px-5 py-4 me-5">
+                                                    <div class="bg-light px-5 py-4 me-5 featuresFacts">
                                                         <div class="d-flex ">
                                                             <div><i class="fa-solid fa-bed" style="padding-right: 11px"></i></div>
                                                             <div><p><?php echo $bed; ?> Bedrooms</p></div>
@@ -664,7 +664,7 @@
                                                             <div><p><?php echo $washroom; ?> Bathrooms</p></div>
                                                         </div>
                                                     </div>
-                                                    <div class="bg-light px-5 py-4">
+                                                    <div class="bg-light px-5 py-4 featuresFacts">
                                                         <div class="d-flex ">
                                                             <div><i class="fa-solid fa-building" style="padding-right: 11px"></i></div>
                                                             <div><p><?php echo $balcony; ?> Balcony</p></div>
@@ -697,7 +697,7 @@
                                         }
 
                                         else { ?>
-                                            <div class="bg-light px-5 py-4 me-5">
+                                            <div class="bg-light px-5 py-4 me-5 featuresFacts">
 
                                                 <div class="d-flex ">
                                                     <div><i class="fa-solid fa-map-location-dot" style="padding-right: 11px"></i></div>
@@ -1225,7 +1225,7 @@
                     
                     <div class="py-5">
 
-                        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" slides-per-view="3" space-between="30" free-mode="true">
+                        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" slides-per-view="1" space-between="30" free-mode="true" breakpoints='{"576":{"slidesPerView":1},"768":{"slidesPerView":2},"992":{"slidesPerView":3}}'>
 
                             <?php 
                                 $rentcategorySql = "SELECT * FROM buy_category WHERE status = 1 ORDER BY priority_id ASC";
@@ -1628,7 +1628,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8 question_part">
-                    <div class="bg-white " style="margin: 10% auto; width: 65%;">
+                    <div class="bg-white questionForm" style="margin: 10% auto; width: 65%;">
                         <h4 class="px-5 py-3" style="background: #1a7e00; color: #fff;">Got Questions? Ask Away!</h4 class="p-3">
                         <form action="" method="POST" class="px-5 py-5">
                             <div class="row">
@@ -1787,7 +1787,7 @@
                         <a href="packages.php" class="quPartBtn">GET START NOW</a>
 
                         <div class="row d-flex align-items-center pt-5 mt-4">
-                            <div class="col-lg-3" style="text-align: center;">
+                            <div class="col-lg-3 geiImg" style="text-align: center;">
                             <i class="fa-solid fa-sack-dollar cost"></i>
                             </div>
                             <div class="col-lg-9">

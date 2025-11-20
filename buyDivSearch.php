@@ -31,12 +31,12 @@
                             <div class="row">
                                 <div class="col-lg-12 text-uppercase d-flex justify-content-between">
                                     <div>
-                                        <h4 style="color: #023021; font-size: 25px;">Result: <?php echo $name; ?> Division</h4>
+                                        <h4 class="renthead" style="color: #023021; font-size: 25px;">Result: <?php echo $name; ?> Division</h4>
                                     </div>
                                     <div class="d-flex">
-                                        <a href="index.php"><h4 style="color:#545454; font-size: 17px; font-weight: 400; ">HOME</h4></a>
-                                        <h4 class="px-2" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
-                                        <h4 style="color:#6c757d; font-size: 17px; font-weight: 400; "><?php echo $name; ?></h4>
+                                        <a href="index.php"><h4 class="shorttext" style="color:#545454; font-size: 17px; font-weight: 400; ">HOME</h4></a>
+                                        <h4 class="px-2 shorttext" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
+                                        <h4 class="shorttext" style="color:#6c757d; font-size: 17px; font-weight: 400; "><?php echo $name; ?></h4>
                                     </div>
                                 </div>
                             </div>
@@ -519,7 +519,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8 question_part">
-                    <div class="bg-white " style="margin: 10% auto; width: 65%;">
+                    <div class="bg-white questionForm" style="margin: 10% auto; width: 65%;">
                         <h4 class="px-5 py-3" style="background: #1a7e00; color: #fff;">Got Questions? Ask Away!</h4 class="p-3">
                         <form action="" method="POST" class="px-5 py-5">
                             <div class="row">
@@ -566,7 +566,7 @@
                         <a href="" class="quPartBtn">GET START NOW</a>
 
                         <div class="row d-flex align-items-center pt-5 mt-4">
-                            <div class="col-lg-3" style="text-align: center;">
+                            <div class="col-lg-3 geiImg" style="text-align: center;">
                             <i class="fa-solid fa-sack-dollar cost"></i>
                             </div>
                             <div class="col-lg-9">
