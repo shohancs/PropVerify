@@ -850,6 +850,17 @@ body, .main_body {
         .mySwiper {
           --swiper-slides-per-view: 3 !important; /* Desktop */
         }
+
+
+        .geiImg{
+            text-align: center;
+        }
+
+
+        .questionForm{
+            margin: 10% auto; 
+            width: 65%;
+        }
     
     /*RESPONSIVENESS*/
     @media screen and (max-width: 576px) {
@@ -906,6 +917,30 @@ body, .main_body {
 
         .card-text, .text-primary {
             font-size: 12px;
+        }
+
+        .geiImg{
+            text-align: left;
+            margin-bottom: 13px;
+        }
+
+        .blog-left {
+            margin-bottom: 2em;
+        }
+
+        .questionForm{
+            width: 95%;
+        }
+
+        .banner-slider swiper-slide .title {
+            font-size: 37px !important;
+            line-height: 51px !important;
+        }
+
+        .banner-slider swiper-slide .subtitle  {
+            font-size: 20px !important;
+            line-height: 30px !important;
+            padding: 8px 0px !important;
         }
 
       
@@ -966,6 +1001,30 @@ body, .main_body {
 
         .card-text, .text-primary {
             font-size: 12px;
+        }
+
+        .geiImg{
+            text-align: left;
+            margin-bottom: 13px;
+        }
+
+        .blog-left {
+            margin-bottom: 2em;
+        }
+
+        .questionForm{
+            width: 90%;
+        }
+
+        .banner-slider swiper-slide .title {
+            font-size: 37px !important;
+            line-height: 51px !important;
+        }
+
+        .banner-slider swiper-slide .subtitle  {
+            font-size: 20px !important;
+            line-height: 30px !important;
+            padding: 8px 0px !important;
         }
 
     }
