@@ -903,6 +903,10 @@ body, .main_body {
             margin-bottom: 18px;
         }
 
+        .verifiction-owner .verify {
+            left: 16px;
+        }
+
         .contact-back{
             width: 80% !important;
         }
@@ -929,7 +933,7 @@ body, .main_body {
         }
 
         .questionForm{
-            width: 95%;
+            width: 95% !important;
         }
 
         .banner-slider swiper-slide .title {
@@ -941,6 +945,28 @@ body, .main_body {
             font-size: 20px !important;
             line-height: 30px !important;
             padding: 8px 0px !important;
+        }
+
+        .renthead{
+            font-size: 16px !important;
+        }
+
+        .shorttext{
+            font-size: 12px !important;
+        }
+
+        .district {
+            font-size: 15px;
+            margin-bottom: 11px;
+
+        }
+
+        .nav {
+            justify-content: center;
+        }
+
+        p.border.border-dark-subtle.p-3.me-4.category_name {
+            margin: 0px 5px 0px 5px !important;
         }
 
       

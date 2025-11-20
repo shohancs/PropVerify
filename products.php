@@ -19,14 +19,14 @@
                             <div class="row">
                                 <div class="col-lg-12 text-uppercase d-flex justify-content-between">
                                     <div>
-                                        <h4 style="color: #023021; font-size: 25px;">EXPLORE rent Products :  <?php echo $cat_name; ?></h4>
+                                        <h4 class="renthead" style="color: #023021; font-size: 25px;">EXPLORE rent Products :  <?php echo $cat_name; ?></h4>
                                     </div>
                                     <div class="d-flex">
-                                        <a href="index.php"><h4 style="color:#545454; font-size: 17px; font-weight: 400; ">HOME</h4></a>
-                                        <h4 class="px-2" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
-                                        <a href="rent.php"><h4 style="color:#545454; font-size: 17px; font-weight: 400; ">RENT CATEGORY</h4></a>
-                                        <h4 class="px-2" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
-                                        <h4 style="color:#6c757d; font-size: 17px; font-weight: 400; "><?php echo $cat_name; ?></h4>
+                                        <a href="index.php"><h4 class="shorttext"  style="color:#545454; font-size: 17px; font-weight: 400; ">HOME</h4></a>
+                                        <h4 class="px-2 shorttext" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
+                                        <a href="rent.php"><h4 class="shorttext" style="color:#545454; font-size: 17px; font-weight: 400; ">RENT CATEGORY</h4></a>
+                                        <h4 class="px-2 shorttext" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
+                                        <h4 class="shorttext" style="color:#6c757d; font-size: 17px; font-weight: 400; "><?php echo $cat_name; ?></h4>
                                     </div>
                                 </div>
                             </div>
