@@ -8,12 +8,12 @@
             <div class="row">
                 <div class="col-lg-12 text-uppercase d-flex justify-content-between">
                     <div>
-                        <h4 style="color: #023021; font-size: 25px;">PACKAGES Offer</h4>
+                        <h4 class="renthead" style="color: #023021; font-size: 25px;">PACKAGES Offer</h4>
                     </div>
                     <div class="d-flex">
-                        <a href="index.php"><h4 style="color:#545454; font-size: 17px; font-weight: 400; ">HOME</h4></a>
-                        <h4 class="px-2" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
-                        <h4 style="color:#6c757d; font-size: 17px; font-weight: 400; ">BUY PACKAGE</h4>
+                        <a href="index.php"><h4 class="shorttext" style="color:#545454; font-size: 17px; font-weight: 400; ">HOME</h4></a>
+                        <h4 class="px-2 shorttext" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
+                        <h4 class="shorttext" style="color:#6c757d; font-size: 17px; font-weight: 400; ">BUY PACKAGE</h4>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center my-5 pb-3">
-                    <h3 style="letter-spacing: 3px; color:#023021; font-size: 40px; font-weight:600;">Find the Best Plan that's Right for Your Business</h3>
+                    <h3 class="pacBold" style="letter-spacing: 3px; color:#023021; font-size: 40px; font-weight:600;">Find the Best Plan that's Right for Your Business</h3>
                     <p style="letter-spacing: 1px; color:#023021;">We Have the Features and Service You Deserve!</p>
                 </div>
 
@@ -54,7 +54,7 @@
                         ?>
 
                         <div class="col-lg-4">
-                            <div class="cards border border-light-subtle p-5 bg-light mb-3" style="border-radius: 10px; filter: drop-shadow(0px 0px 12px #ccc); height: 50em; ">
+                            <div class="cards border border-light-subtle p-5 bg-light mb-3 paccard" style="border-radius: 10px; filter: drop-shadow(0px 0px 12px #ccc); height: 50em; ">
                                 <?php  
                                     if ( $id == 2 ) { ?>
                                         <div class="text-cards">

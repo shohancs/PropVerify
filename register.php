@@ -6,12 +6,12 @@
             <div class="row">
                 <div class="col-lg-12 text-uppercase d-flex justify-content-between">
                     <div>
-                        <h4 style="color: #023021; font-size: 25px;">Register new account</h4>
+                        <h4 class="renthead" style="color: #023021; font-size: 25px;">Register new account</h4>
                     </div>
                     <div class="d-flex">
-                        <a href="index.php"><h4 style="color:#545454; font-size: 17px; font-weight: 400; ">HOME</h4></a>
-                        <h4 class="px-2" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
-                        <h4 style="color:#6c757d; font-size: 17px; font-weight: 400; ">signup</h4>
+                        <a href="index.php"><h4 class="shorttext" style="color:#545454; font-size: 17px; font-weight: 400; ">HOME</h4></a>
+                        <h4 class="px-2 shorttext" style="color:#545454; font-size: 17px; font-weight: 400; "> / </h4>
+                        <h4 class="shorttext" style="color:#6c757d; font-size: 17px; font-weight: 400; ">signup</h4>
                     </div>
                 </div>
             </div>

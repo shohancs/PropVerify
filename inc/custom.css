@@ -987,6 +987,14 @@ body, .main_body {
             height: 100% !important;
         }
 
+        .pacBold{
+            font-size: 25px !important;
+        }
+
+        .paccard{
+            height: 56em !important;
+        }
+
       
 
         
@@ -994,6 +1002,15 @@ body, .main_body {
     }
 
     @media screen and (min-width: 576px) and (max-width: 992px) {
+
+        .paccard{
+            height: 51em !important;
+        }
+
+        .pacBold{
+            font-size: 30px !important;
+        }
+
 
         .top-nevi{
             margin: 0px;

@@ -65,7 +65,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12 text-center pb-3">
-                                    <h3 style="letter-spacing: 3px; color:#023021; font-size: 40px; font-weight:600;">Find the Best Plan that's Right for Your Business</h3>
+                                    <h3 class="pacBold" style="letter-spacing: 3px; color:#023021; font-size: 40px; font-weight:600;">Find the Best Plan that's Right for Your Business</h3>
                                     <p style="letter-spacing: 1px; color:#023021;">We Have the Features and Service You Deserve!</p>
                                 </div>
 
@@ -93,7 +93,7 @@
                                         ?>
 
                                         <div class="col-lg-4">
-                                            <div class="cards border border-light-subtle p-5 bg-light" style="border-radius: 10px; filter: drop-shadow(0px 0px 12px #ccc); height: 50em;">
+                                            <div class="cards border border-light-subtle p-5 mb-3 bg-light paccard" style="border-radius: 10px; filter: drop-shadow(0px 0px 12px #ccc); height: 50em;">
                                                 <?php  
                                                     if ( $id == 2 ) { ?>
                                                         <div class="text-cards">
@@ -2186,7 +2186,7 @@
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-12 question_part">
-                                                <div class="bg-white " style="margin: 10% auto; width: 65%;">
+                                                <div class="bg-white questionForm" style="margin: 10% auto; width: 65%;">
                                                     <h4 class="px-5 py-3" style="background: #1a7e00; color: #fff;">Got Questions? Ask Away!</h4 class="p-3">
                                                     <form action="" method="POST" class="px-5 py-5" id="contactForm">
                                                         <div class="row">
