@@ -859,11 +859,14 @@ body, .main_body {
 
         .fr-service {
             flex-direction: column;
+            align-items: center;
+            margin: 0px;
+        }
+        .seCard, .service-card{
+            margin: 0px 0px 25px 0px !important;
+            width: 14rem !important;
         }
 
-        .seCard{
-            margin-bottom: 25px;
-        }
         .bigFormate{
             font-size: 23px !important;
         }
@@ -897,6 +900,14 @@ body, .main_body {
             flex-direction: column;
         }
 
+        .card-head{
+            font-size: 25px;
+        }
+
+        .card-text, .text-primary {
+            font-size: 12px;
+        }
+
       
 
         
@@ -904,5 +915,57 @@ body, .main_body {
     }
 
     @media screen and (min-width: 576px) and (max-width: 992px) {
+
+        .top-nevi{
+            margin: 0px;
+        }
+
+        .fr-service{
+
+        }
+
+        .seCard, .service-card{
+             margin: 0px 16px 25px 16px !important;
+                width: 14rem !important;
+                padding: 0;
+        }
+        .bigFormate{
+            font-size: 23px !important;
+        }
+
+        
+
+        #btn-back-to-top {
+            position: fixed;
+            bottom: 95px;
+            right: 20px;
+            display: none ;
+        }
+
+        
+        .verifiction-owner .ow_img {
+            width: 10% !important;
+            border-radius: 50%;
+        }
+
+        .verifiction-owner {
+            margin-bottom: 18px;
+        }
+
+        .contact-back{
+            width: 80% !important;
+        }
+
+        .contact-devide{
+            flex-direction: column;
+        }
+
+        .card-head{
+            font-size: 25px;
+        }
+
+        .card-text, .text-primary {
+            font-size: 12px;
+        }
 
     }

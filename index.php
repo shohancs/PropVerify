@@ -65,7 +65,7 @@
                                     <div class="card me-5 py-2 service-card" style="width: 18rem;">
                                         <div class="card-body">
                                             <img src="assets/images/buy.svg" alt="" class="w-50" style="margin:0 23%;">
-                                            <h1 class="text-center pt-3" style="color:#023021;">Buy</h1>
+                                            <h1 class="text-center pt-3 card-head" style="color:#023021;">Buy</h1>
                                             <p class="card-text text-center">Affordable housing options<br>Find your ideal place today!<br>Explore our listings. <br><span class="text-primary">Click Here..</span></p>
                                         </div>
                                     </div>
