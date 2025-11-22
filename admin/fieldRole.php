@@ -206,9 +206,9 @@
 										  		$Count = mysqli_num_rows($roleQuery);
 
 										  		if ( $Count == 0 ) { ?>
-										  			<!-- <div class="alert alert-danger text-center" role="alert">
+										  			<div class="alert alert-danger text-center" role="alert">
 													  Sorry!! No data found in this datatable.
-													</div> -->
+													</div>
 										  		<?php }
 										  		else {
 										  			$i = 0;

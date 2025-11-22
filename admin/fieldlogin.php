@@ -11,8 +11,6 @@
 <!doctype html>
 <html lang="en">
 
-
-<!-- Mirrored from codervent.com/rukada/demo/vertical/authentication-signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 31 Jan 2023 17:33:39 GMT -->
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
@@ -159,6 +157,4 @@
 	<script src="assets/js/app.js"></script>
 </body>
 
-
-<!-- Mirrored from codervent.com/rukada/demo/vertical/authentication-signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 31 Jan 2023 17:33:39 GMT -->
 </html>

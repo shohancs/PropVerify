@@ -220,78 +220,78 @@
 				<!--end row-->
 
 				<div class="card radius-10 w-100">
-    <div class="card-header">
-        <h5 class="mb-0">Last 30 Days Income (Paid)</h5>
-    </div>
-    <div class="card-body">
-        <canvas id="weeklyIncomeChart" height="380"></canvas>
-    </div>
-</div>
+				    <div class="card-header">
+				        <h5 class="mb-0">Last 30 Days Income (Paid)</h5>
+				    </div>
+				    <div class="card-body">
+				        <canvas id="weeklyIncomeChart" height="380"></canvas>
+				    </div>
+				</div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-<?php
-$db = mysqli_connect("localhost", "root", "", "property_rental");
+				<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+				<script>
+				<?php
+				$db = mysqli_connect("localhost", "root", "", "property_rental");
 
-// লাস্ট ৩০ দিনের ডাটা নিব (তোর ডাটা দেখানোর জন্য)
-$labels = [];
-$data   = [];
+				// Last 30 days data read
+				$labels = [];
+				$data   = [];
 
-for($i = 29; $i >= 0; $i--) {
-    $date = date("Y-m-d", strtotime("-$i days"));
-    $labels[] = date("d M", strtotime($date)); // 01 Nov, 02 Nov...
+				for($i = 29; $i >= 0; $i--) {
+				    $date = date("Y-m-d", strtotime("-$i days"));
+				    $labels[] = date("d M", strtotime($date)); // 01 Nov, 02 Nov...
 
-    $sql = "SELECT COALESCE(SUM(price), 0) AS income 
-            FROM transactions 
-            WHERE status = 1 
-              AND DATE(transaction_date) = '$date'";
-    
-    $res = mysqli_query($db, $sql);
-    $row = mysqli_fetch_assoc($res);
-    $data[] = (float)$row['income'];
-}
-?>
+				    $sql = "SELECT COALESCE(SUM(price), 0) AS income 
+				            FROM transactions 
+				            WHERE status = 1 
+				              AND DATE(transaction_date) = '$date'";
+				    
+				    $res = mysqli_query($db, $sql);
+				    $row = mysqli_fetch_assoc($res);
+				    $data[] = (float)$row['income'];
+				}
+				?>
 
-const ctx = document.getElementById('weeklyIncomeChart').getContext('2d');
-const gradient = ctx.createLinearGradient(0, 0, 0, 380);
-gradient.addColorStop(0, 'rgba(78, 115, 223, 0.5)');
-gradient.addColorStop(1, 'rgba(78, 115, 223, 0.05)');
+				const ctx = document.getElementById('weeklyIncomeChart').getContext('2d');
+				const gradient = ctx.createLinearGradient(0, 0, 0, 380);
+				gradient.addColorStop(0, 'rgba(78, 115, 223, 0.5)');
+				gradient.addColorStop(1, 'rgba(78, 115, 223, 0.05)');
 
-new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: <?= json_encode($labels) ?>,
-        datasets: [{
-            label: 'ইনকাম (৳)',
-            data: <?= json_encode($data) ?>,
-            backgroundColor: gradient,
-            borderColor: '#4e73df',
-            borderWidth: 4,
-            pointRadius: 5,
-            pointHoverRadius: 10,
-            fill: true,
-            tension: 0.4
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            y: { 
-                beginAtZero: true,
-                ticks: { callback: v => '৳' + v.toLocaleString() }
-            }
-        },
-        plugins: {
-            tooltip: {
-                callbacks: {
-                    label: ctx => 'ইনকাম: ৳' + ctx.parsed.y.toLocaleString()
-                }
-            }
-        }
-    }
-});
-</script>
+				new Chart(ctx, {
+				    type: 'line',
+				    data: {
+				        labels: <?= json_encode($labels) ?>,
+				        datasets: [{
+				            label: 'ইনকাম (৳)',
+				            data: <?= json_encode($data) ?>,
+				            backgroundColor: gradient,
+				            borderColor: '#4e73df',
+				            borderWidth: 4,
+				            pointRadius: 5,
+				            pointHoverRadius: 10,
+				            fill: true,
+				            tension: 0.4
+				        }]
+				    },
+				    options: {
+				        responsive: true,
+				        maintainAspectRatio: false,
+				        scales: {
+				            y: { 
+				                beginAtZero: true,
+				                ticks: { callback: v => '৳' + v.toLocaleString() }
+				            }
+				        },
+				        plugins: {
+				            tooltip: {
+				                callbacks: {
+				                    label: ctx => 'ইনকাম: ৳' + ctx.parsed.y.toLocaleString()
+				                }
+				            }
+				        }
+				    }
+				});
+				</script>
 
 
 			</div>
