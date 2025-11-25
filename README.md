@@ -90,8 +90,8 @@ This project proves I can design, develop, and deliver a complete commercial Saa
 Currently seeking Full-Time / Remote PHP Backend or Full-Stack Software Engineer positions where I can build scalable, revenue-focused systems.
 
 **Contact**  
-Email → shohancs.dev@gmail.com
-Website → (https://shohancs.com/)
+Email → shohancs.dev@gmail.com <br>
+Website → (https://shohancs.com/) <br>
 LinkedIn → [https://linkedin.com/in/shohancs](https://www.linkedin.com/in/shohancs/)
 
 
