@@ -68,14 +68,9 @@ Fully deployed, tested, and ready to go live commercially tomorrow.
 
 ### Screenshots
 
+![Untitled design (1)](https://github.com/user-attachments/assets/b0ac3fad-3890-42b7-b278-15bc4b20a16c)
 
-![Uploading image.png…]()
 
-
-<div align="center">
-  ![Untitled design (1)](https://github.com/user-attachments/assets/6287b1e1-7af9-480a-becc-64c73a2929a8)
-
-</div>
 
 ### Local Installation (Under 5 Minutes)
 
