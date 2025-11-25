@@ -5,7 +5,7 @@
 
 <br>
 
-<img align="center" src="https://shohancs.com/projects/PropVerify/assets/images/logo2.png" alt="PropVerify" width="120"/>
+<img align="center" src="https://shohancs.com/projects/PropVerify/assets/images/logo2.png" alt="PropVerify" width="100%"/>
 
 <br>
 
