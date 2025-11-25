@@ -1,5 +1,8 @@
 # PropVerify – Production-Ready Real Estate Marketplace (Pure PHP SaaS)  
 
+
+![Untitled design (1)](https://github.com/user-attachments/assets/b0ac3fad-3890-42b7-b278-15bc4b20a16c)
+
 **Live Demo** → https://shohancs.com/projects/PropVerify/  
 **GitHub** → https://github.com/shohancs/PropVerify  
 
@@ -65,10 +68,6 @@ Fully deployed, tested, and ready to go live commercially tomorrow.
 | Field Checker   | /admin/fieldlogin.php                   | field@gmail.com      | 12345    |
 | Seller          | /login.php → “Login Seller Account”     | seller@gmail.com     | 12345    |
 | Regular User    | /login.php → “Login User Account”       | user@gmail.com       | 12345    |
-
-### Screenshots
-
-![Untitled design (1)](https://github.com/user-attachments/assets/b0ac3fad-3890-42b7-b278-15bc4b20a16c)
 
 
 
