@@ -54,7 +54,7 @@
                         ?>
 
                         <div class="col-lg-4">
-                            <div class="cards border border-light-subtle p-5 bg-light mb-3 paccard" style="border-radius: 10px; filter: drop-shadow(0px 0px 12px #ccc); height: 50em; ">
+                            <div class="cards border border-light-subtle p-5 bg-light mb-3 paccard" style="border-radius: 10px; filter: drop-shadow(0px 0px 12px #ccc); height: 54em; ">
                                 <?php  
                                     if ( $id == 2 ) { ?>
                                         <div class="text-cards">
