@@ -1,4 +1,4 @@
-<img width="1920" height="6886" alt="image" src="https://github.com/user-attachments/assets/a8b98f89-212c-4d77-bff9-f374504baee8" /># PropVerify – Production-Ready Real Estate Marketplace (Pure PHP SaaS)  
+# PropVerify – Production-Ready Real Estate Marketplace (Pure PHP SaaS)  
 
 **Live Demo** → https://shohancs.com/projects/PropVerify/  
 **GitHub** → https://github.com/shohancs/PropVerify  
