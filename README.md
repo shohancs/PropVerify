@@ -15,7 +15,7 @@ Fully deployed, tested, and ready to go live commercially tomorrow.
 | Paid seller packages + live payment gateway| Very rare       | SSLCommerz fully integrated              |
 | On-site Field Verification Team            | Never seen      | Dedicated role + photo proof + reports   |
 | 4 separate dashboards (User, Seller, Field Checker, Admin) | 1–2 max | All 4 complete & role-based              |
-| Auto-expiry & auto-deactivation of listings| No              | Built-in logic + notifications           |
+| Expiry & deactivation of listings          | No              | Built-in logic + notifications           |
 | Hotel booking + email receipt + admin panel| Basic CRUD      | Full flow with calendar & receipt        |
 | Built with pure PHP (no framework)         | Laravel only    | 100% hand-written PHP & MySQL            |
 
