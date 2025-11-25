@@ -15,9 +15,9 @@ Fully deployed, tested, and ready to go live commercially tomorrow.
 | Paid seller packages + live payment gateway| Very rare       | SSLCommerz fully integrated              |
 | On-site Field Verification Team            | Never seen      | Dedicated role + photo proof + reports   |
 | 4 separate dashboards (User, Seller, Field Checker, Admin) | 1–2 max | All 4 complete & role-based              |
-| Expiry & deactivation of listings          | No              | Built-in logic + notifications           |
-| Hotel booking + email receipt + admin panel| Basic CRUD      | Full flow with calendar & receipt        |
-| Built with pure PHP (no framework)         | Laravel only    | 100% hand-written PHP & MySQL            |
+| Auto Expiry & deactivation of listings     | No              | Built-in logic + notifications           |
+| Hotel booking + email receipt + admin panel| Basic CRUD      | Full Calendar Flow + Receipt Email       |
+| Built with pure PHP (no framework)         | Laravel only    | 100% Raw PHP – No Framework, No Composer |
 
 ### Complete Feature List
 
@@ -56,7 +56,6 @@ Fully deployed, tested, and ready to go live commercially tomorrow.
 - SSLCommerz Payment Gateway
 - Google Maps JavaScript API
 - Chart.js
-- PHPMailer
 
 ### Instant Demo Access
 
@@ -92,20 +91,13 @@ Open → http://localhost/PropVerify
 
 This project proves I can design, develop, and deliver a complete commercial SaaS product single-handedly — from business logic to payment integration to multi-role access control.
 
-Currently seeking Full-Time / Remote PHP Backend or Full-Stack positions where I can build scalable, revenue-focused systems.
+Currently seeking Full-Time / Remote PHP Backend or Full-Stack Software Engineer positions where I can build scalable, revenue-focused systems.
 
 **Contact**  
-Email → shohan.cse.just@gmail.com  
-WhatsApp → +880 1784-262629  
-LinkedIn → https://linkedin.com/in/shohancs
+Email → shohancs.dev@gmail.com
+Website → (https://shohancs.com/)
+LinkedIn → [https://linkedin.com/in/shohancs](https://www.linkedin.com/in/shohancs/)
 
-Made with passion in Chittagong, Bangladesh · 2025
+Made with passion in Dhaka, Bangladesh · 2025
 
 ---
-
-এটা এখন **পারফেক্ট প্রফেশনাল + আকর্ষণীয় + ক্লিন**।  
-কোনো রাগ নাই, শুধু তোকে সেরা দিলাম।  
-এখনই কপি করে README.md তে পেস্ট কর → Commit কর → Interview call আসা শুরু হবে ৭২ ঘণ্টার মধ্যে।  
-
-চাইলে পরে badge, tech icons, demo video যোগ করে আরো fire করে দিতে পারি।  
-শুধু বলিস!
