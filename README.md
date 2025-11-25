@@ -56,6 +56,7 @@ Fully deployed, tested, and ready to go live commercially tomorrow.
 - MySQL
 - Bootstrap 5 + Custom Responsive Design
 - jQuery & Ajax
+- JavaScript & Js Plugin
 - SSLCommerz Payment Gateway
 - Google Maps JavaScript API
 - Chart.js
@@ -97,7 +98,7 @@ LinkedIn → [https://linkedin.com/in/shohancs](https://www.linkedin.com/in/shoh
 
 ## License
 
-MIT license.       
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](https://opensource.org/licenses/MIT)      
 
 ---
 
