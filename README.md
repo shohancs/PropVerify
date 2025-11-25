@@ -3,7 +3,11 @@
 **Live Demo** → https://shohancs.com/projects/PropVerify/  
 **GitHub** → https://github.com/shohancs/PropVerify  
 
-<img align="right" src="https://shohancs.com/projects/PropVerify/assets/images/logo2.png" alt="PropVerify" width="120"/>
+<br>
+
+<img align="center" src="https://shohancs.com/projects/PropVerify/assets/images/logo2.png" alt="PropVerify" width="120"/>
+
+<br>
 
 
 A complete, revenue-generating real estate platform built **100% from scratch using raw PHP & MySQL** — **zero framework, zero Laravel, zero Composer**.  
