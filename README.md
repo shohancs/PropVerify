@@ -73,10 +73,8 @@ Fully deployed, tested, and ready to go live commercially tomorrow.
 
 
 <div align="center">
-  <img src="https://shohancs.com/projects/PropVerify/screenshots/home.jpg" width="45%" alt="Home">
-  <img src="https://shohancs.com/projects/PropVerify/screenshots/admin-dashboard.jpg" width="45%" alt="Admin Dashboard">
-  <img src="https://shohancs.com/projects/PropVerify/screenshots/packages.jpg" width="45%" alt="Packages">
-  <img src="https://shohancs.com/projects/PropVerify/screenshots/field-checker.jpg" width="45%" alt="Field Checker">
+  ![Untitled design (1)](https://github.com/user-attachments/assets/6287b1e1-7af9-480a-becc-64c73a2929a8)
+
 </div>
 
 ### Local Installation (Under 5 Minutes)
