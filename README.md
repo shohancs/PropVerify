@@ -94,7 +94,6 @@ Email → shohancs.dev@gmail.com
 Website → (https://shohancs.com/)
 LinkedIn → [https://linkedin.com/in/shohancs](https://www.linkedin.com/in/shohancs/)
 
-Made with passion in Dhaka, Bangladesh · 2025
 
 ## License
 
@@ -102,10 +101,3 @@ MIT license.
 
 ---
 
-## Contribution
-
-Contributions are welcome. Please open issues or pull requests on the GitHub repository with clear descriptions and reproduction steps.
-
----
-
----
