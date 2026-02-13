@@ -91,15 +91,22 @@ This project proves I can design, develop, and deliver a complete commercial Saa
 
 Currently seeking Full-Time / Remote PHP Backend or Full-Stack Software Engineer positions where I can build scalable, revenue-focused systems.
 
-**Contact**  
-Email → shohancs.dev@gmail.com <br>
-Website → (https://shohancs.com/) <br>
-LinkedIn → [https://linkedin.com/in/shohancs](https://www.linkedin.com/in/shohancs/)
+---
+
+## 👨‍💻 Developer / Owner
+
+**Shohanur Rahman Shohan**  
+Full-Stack Software Engineer  
+Available for Remote, Freelance & Full-time roles
+
+- 🌐 Portfolio: https://shohancs.com  
+- 📧 Email: **shohancs.dev@gmail.com**  
+- 🔗 LinkedIn: https://linkedin.com/in/shohancs  
+
+---
 
 
 ## License
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](https://opensource.org/licenses/MIT)      
-
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](https://opensource.org/licenses/MIT)       
 
